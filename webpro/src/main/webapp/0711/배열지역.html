@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script>
+
+function proc1(){
+	 var fruit = ["바나나", "사과", "오렌지","파인애플", "복숭아"];
+     print(fruit, 'result1');
+}
+
+function print( fr, out){
+	  str = "";
+		
+		
+	for(i=0; i<fr.length; i++){
+			str += fr[i] + " ";
+	}
+		
+	document.getElementById(out).innerHTML = str ;
+}
+
+function proc2(){
+	var fruit = new Array("자두", "참외", "수박","파인애플", "복숭아");
+	print(fruit, 'result2');
+}
+
+function proc3(){
+	var fruit = new Array();
+	
+	fruit[0]  = "파인애플";
+	fruit[1]  = "망고";
+    fruit[2] = "딸기";
+    
+    print(fruit , 'result3')
+	   
+}
+
+
+</script>
+
+
+</head>
+<body>
+<div class="box">
+	   <h3>배열 <br>
+	   var fruit = ["바나나", "사과", "오렌지","파인애플", "복숭아"]
+	    </h3>
+	   <input type="button" value="확인" onclick="proc1()">
+	   <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+	   <h3>배열 <br>
+	   var fruit = new Array("자두", "참외", "수박","파인애플", "복숭아")
+	    </h3>
+	   <input type="button" value="확인" onclick="proc2()">
+	   <div id="result2"></div>
+ </div>
+ 
+ 
+ <div class="box">
+	   <h3>배열 <br>
+	   var fruit = new Array();<br>
+	   fruit[0]  = "파인애플";<br>
+	   fruit[1]  = "망고";<br>
+	   fruit[2] = "딸기";<br>
+	    </h3>
+	   <input type="button" value="확인" onclick="proc3()">
+	   <div id="result3"></div>
+ </div>
+ 
+</body>
+</html>

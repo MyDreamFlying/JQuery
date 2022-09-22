@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<style type="text/css">
+label{
+  display : inline-block;
+  width : 70px;
+  height : 40px;
+}
+
+table{
+   border : 1px solid blue;
+   display : none;
+}
+td{
+   width : 300px;
+   height : 50px;
+   text-align: center;
+}
+
+pre{
+  font-size : 1.3em;
+}
+</style>
+
+
+
+</head>
+<body>
+
+<pre>
+스크립트에서 html요소를 검색, 접근 방법
+a = document.getElementById('id이름')
+
+aa = document.getElementsByTagName('tag이름')
+aa[0].style  aa[1].style
+
+aa =  document.getElementsByTagName('tag이름')[0]
+aa.style
+
+
+input type=text id="price" 에서 입력 한 값을 가져오기 - value를 이용 
+document.getElementById('price').value
+
+input이 아닌 다른 요소에 값을 출력 하기 
+ &lt;td id="tprice">&lt;/td>
+ document.getElementById('tprice').innerText = 값;
+
+</pre>
+
+<form action="formbutton.jsp"  method="get"> 
+   <label>물품가격</label>
+   <input id="price" type="text" name="price"><br>
+   
+   <label>수량</label>
+   <input id="qty" type="text" name="qty"> <br>
+   
+   <input type="button" value="확인"  onclick="calc()">
+   <input type="submit">
+</form>
+
+<br><br>
+<table border="1">
+ <tr>
+    <td>가격</td>
+    <td>수량</td>
+    <td>금액</td>
+ </tr>
+ 
+ <tr>
+    <td id="tprice"></td>
+    <td id="tqty"></td>
+    <td id="tres"></td>
+ </tr>
+</table>
+
+<script type="text/javascript">
+   //html요소를 검색 접근 방법 
+   function calc(){
+	  // alert("hello");
+	  
+	  //html요소를 검색 접근 방법 
+	  var a =  parseInt(document.getElementById("price").value);
+	  var b = parseInt(document.getElementById("qty").value);
+	  
+	  var  res = a * b;
+	  
+	  //alert("가격 " + a + " 수량 " + b + " 금액 " + res);
+	  
+	 //table의  display  스타일 를 block으로 설정 
+	 aa =  document.getElementsByTagName('table')[0];
+	 aa.style.display = "block";
+	  
+	  //출력 할 장소 html요소를 검색 하여 출력 한다
+	  document.getElementById('tprice').innerText= a;
+	  document.getElementById('tqty').innerText= b;
+	  document.getElementById('tres').innerText= res;
+	  
+   }
+   
+ 
+ 
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	
+	$('.box1 input[value=html]').on('click', function(){
+		  // alert($('body').html());
+		 a = $('body').html();
+	})
+	
+	$('.box1 input[value=text]').on('click', function(){
+		//alert($('body').text());
+		a = $('body').text();
+	})
+	
+	$('.box2 input[value=html]').on('click', function(){
+		//alert($('p').html());
+		a= $('p').html();   //1<span>홍길동</span>
+		
+		//document.getElementById('result2').innerHTML = a;
+		$('#result2').text(a);
+		
+	})
+	
+	$('.box2 input[value=text]').on('click', function(){
+		//alert($('p').text());
+		a = $('p').text();
+		
+		//document.getElementById('result2').innerText = a;
+		$('#result2').text(a);
+	})
+	
+	
+	$('.box3 input[value=html]').on('click', function(){
+		
+		 str = "";
+		 $('.box3 div.dd').each(function(){
+			  str +=   $(this).html() ;
+			  //str += $('.box3 div.dd').html() + "\n";
+		 })
+		 
+		 //alert(str)
+		 //$('#result3').text(str);
+		 $('#result3').html(str);
+	})
+	
+})
+
+</script>
+
+<style>
+span{
+  background : yellow;
+}
+</style>
+</head>
+<body>
+
+<div class="box box1">
+    <h3>body태그안의 내용가져오기 <br>
+    html()  : 모든 태그를 포함한 내용 가져오기<br>
+    text() : 태그를 포함하지 않는 모등 내용 가져오기 </h3>
+    <input type="button" value="html">
+    <input type="button" value="text">
+    <div id="result1"></div>
+ </div>
+
+ 
+ <div class="box box2">
+    <h3>p태그의 내용 가져오기
+    html() : 첫번째 p태그만을 대상으로 태그를 포함한 내용 가져오기 
+    text()  :모든 p태그를 대상으로 태그를 포함하지 않는 내용 가져오기  </h3>
+    <input type="button" value="html">
+    <input type="button" value="text">
+    <p>1<span>홍길동</span></p>
+    <p>2<span>개나리</span></p>
+    <p>3<span>진달래</span></p>
+    <div id="result2"></div>
+ </div>
+ 
+ <div class="box box3">
+    <h3>반복문을 이용해서 모든 div태그를 대상으로 내용 가져오기 </h3>
+    <input type="button" value="html">
+    <div class="dd">1<h1>홍길동</h1></div>
+    <div class="dd">2<h1>개나리</h1></div>
+    <div class="dd">3<h1>진달래</h1></div>
+    
+    <div id="result3"></div>
+ </div>
+ 
+</body>
+</html>
+
+
+
+

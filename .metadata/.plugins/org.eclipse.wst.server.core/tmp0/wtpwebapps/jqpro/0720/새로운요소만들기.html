@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+function proc1(){
+	ele = $('<p class="p1" onclick="p1click()">무궁화 꽃이 피었습니다</p>');
+	
+	$(ele).appendTo($('#result1'))
+}
+
+function p1click(){
+	alert("hello");
+}
+
+function proc2(){
+	ele = $('<p></p>', { 
+		  'class' : 'p2',
+		  'text'  : '무궁화 꽃이 피었습니다',
+		  'click' : function(){
+			  //alert("hello");
+			 // this.style.color= 'red';
+			 $(this).css('color', 'green');
+		  }
+	})
+	
+	//ele.appendTo( $('#result2'))
+	$('#result2').append(ele);
+	
+	
+}
+</script>
+
+
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3></h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+</body>
+</html>
+
+
+
+
+

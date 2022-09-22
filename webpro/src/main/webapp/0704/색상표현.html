@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<style>
+p{
+   width : 40%;
+   height : 200px;
+   border : 2px solid gray;
+   float : left;
+   margin : 20px;
+}
+</style>
+ 
+<script>
+
+window.onload = function() {
+	//html 요소  p태그를 검색,
+	ptags =  document.getElementsByTagName('p');
+
+	for(var i=0 ; i < ptags.length; i++){
+		ptags[i].addEventListener('click', changeColor);
+	}
+
+
+	function changeColor(){
+		//this를 사용가능하도록 설정 
+		
+		a = parseInt( Math.random() * 256);
+		b = parseInt( Math.random() * 256);
+		c = parseInt( Math.random() * 256);
+		
+		//16진수로 변경 
+		cr = a.toString(16);
+		cg = b.toString(16);
+		cb = c.toString(16);
+		
+		//this.style.backgroundColor = 랜덤으러 값을 발생 1	6진수로 변경 값
+		this.style.backgroundColor = "#" + cr + cg + cb;
+	}
+	
+}
+
+</script>
+
+
+</head>
+<body>
+
+<pre>
+p태그의 이벤트 설정 
+1. &lt;p onclick="changeColor(this)>
+2. 스크립트에서 일괄 등록 방식 
+</pre>
+<!-- 
+<p onclick="changeColor(this)"></p>
+<p onclick="changeColor(this)"></p> -->
+
+<p></p>
+<p></p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

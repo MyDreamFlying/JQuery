@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+
+<script>
+//arr  문자 배열
+arr =["사랑은 늘 도망가", "별빛같은 나의 사랑아", "우리들의 블루스",
+"사랑해 진짜", "이제 나만 믿어요", "다시 만날수 있을까", "손이 참 곱던 그대"];
+
+function addproc(){
+	
+	// random발생 
+	rand = parseInt(Math.random() * arr.length) ; 
+	
+	//text 노드를 생성 - 랜덤으로 발생된 문자열 
+	text = document.createTextNode(arr[rand]);
+	
+	//p태그를 생성 
+	ptag = document.createElement('p');
+
+	//ptag에 text를 자식으로 추가한다 
+	ptag.appendChild(text);
+	
+	//result1를 검색
+	result1 = document.getElementById('result1');
+	
+	//result1에 ptag를 자식으로 추가한다 
+	result1.appendChild(ptag);
+}
+function delproc(){
+	//부모 result1를 검색 
+	
+	//lastChild를 선택 
+	child = result1.lastChild;
+	
+	//부모에서 lastChild를 삭제 
+	result1.removeChild(child);
+}
+
+function proc(){
+	// random발생 
+	rand = parseInt(Math.random() * arr.length) ; 
+	
+	//text 노드를 생성 - 랜덤으로 발생된 문자열 
+	text = document.createTextNode(arr[rand]);
+	
+	//p태그를 생성 
+	ptag = document.createElement('p');
+
+	//ptag에 text를 자식으로 추가한다 
+	ptag.appendChild(text);
+	
+	//버튼 생성
+	but = document.createElement('button');
+	but.type="button";   //but.setAttribute('type', 'button')
+	but.innerText = "삭제";
+	but.setAttribute('class', 'but');
+	but.onclick = function(){
+		this.parentNode.remove();
+	}
+	
+	//deltext = document.createTextNode("삭제");
+	//but.appendChild(deltext);
+	
+	//ptag에 but를 자식으로 추가한다 
+	ptag.appendChild(but);
+	
+	//result2검색 
+	result2 = document.getElementById('result2');
+	
+	//result2에 ptag를 추가 
+	result2.appendChild(ptag);
+	
+}
+
+//시작버튼 글릭시 실행
+function start(sb){
+	
+	//sb는지역변수 이고 전역변수에 대입 end()함수안에서 sb를 사용하기위해서 
+	gsb = sb;
+	
+	//result3를 검색 
+	result3 = document.getElementById('result3');
+	
+	//a 변수는 setInterval이 수행될때 자동으로 발생되는 id값 
+	a = setInterval(function(){ 
+		result3.appendChild(result3.firstChild);
+		console.log(a);
+	}, 200);
+	
+	//시작버튼을 사용하지 못하도록 설정 - 안보이게 설정 
+	//종료버튼이 클릭되면 다시 나타나게 또는 사용가능하도록 설정 
+	
+	//sb.style.display = "none";
+	sb.setAttribute('disabled', true);
+}
+
+//종료버튼 클릭 시 실행 
+function end(){
+	clearInterval(a);
+	
+	//시작버튼을 보이도록 설정 
+	//gsb.style.display = "inline";
+	gsb.removeAttribute('disabled');
+}
+</script>
+
+<style>
+img{
+  width : 100px;
+  height : 100px;
+  margin : 2px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" value="추가" onclick="addproc()">
+    <input type="button" value="삭제" onclick="delproc()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3></h3>
+    <input type="button" value="추가삭제" onclick="proc()">
+    <div id="result2"></div>
+ </div>
+ 
+ 
+  
+ <div class="box">
+    <h3>appendChild(child)<br>
+     새로운 요소가 아니고 기존의 요소(img) 를 선택할 시 에는 <br>
+     선택된 img가 맨뒤로 이동된다 
+    </h3>
+    <input type="button" id="start" value="시작" onclick="start(this)">
+    <input type="button" value="종료" onclick="end()">
+    <div id="result3">
+      <img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg">
+      <img src="../images/대나무숲.jpg" alt="대나무숲.jpg">
+      <img src="../images/Tulips.jpg" alt="Tulips.jpg">
+      <img src="../images/뱅쇼.jpg" alt="뱅쇼.jpg">
+      <img src="../images/국화.jpg" alt="국화.jpg">
+      <img src="../images/펭귄.jpg" alt="펭귄.jpg">    
+    </div>
+ </div>
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

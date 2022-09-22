@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<style>
+div{
+   width : 500px;
+   height : 200px;
+   border : 1px solid green;
+   margin : 10px;
+   padding : 10px;
+}
+</style>
+
+<script>
+function proc1(){
+	
+	//입력 
+	let  input  =  prompt("정수1 를 입력");
+	
+	x = parseInt(input);
+	
+	 input  = prompt("정수2 입력");
+	
+	y = parseInt(input);
+	
+	//계산 
+	res = x + y;
+	
+	
+	
+	//출력 
+	str = "정수1 : " + x + "<br>";
+	str += "정수2 : " + y + "<br>";
+	str +=  x + " + " +  y + " = " + res  + "<br>";
+	
+	//div를 검색 
+    out = 	document.getElementsByTagName('div')[0];
+	
+	out.innerHTML = str;
+	
+	
+	
+}
+</script>
+
+</head>
+<body>
+
+  <pre>
+  확인 버튼 클릭하면 두개의 정수를 입력받는다 
+  입력 받은 두정수를 더한다 
+  div에 출력 한다 
+  
+  스크립트에서 html요소를 검색, 접근방법
+  document.getElementById('id이름');
+  document.getElementsByClassName('class이름')
+  document.getElementsByTagName('tag이름');
+  
+  es6
+  document.querySelector('#아이디이름');
+  document.querySelector('.클래스이름');
+  document.querySelector('tag이름')
+  
+   document.querySelectorAll('.클래스이름');
+   document.querySelectorAll('tag이름')
+  </pre>
+
+  <input type="button" value="확인" onclick="proc1()">
+  
+  <br><br>
+  <div></div>
+  
+</body>
+</html>
+
+
+
+
+

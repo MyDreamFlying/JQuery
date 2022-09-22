@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+function proc1(){
+	
+	su = new Array();
+	//su = [];
+	
+	for(i=0; i<5; i++){
+		
+		 //su[i] = parseInt(Math.random()*10+1)
+		 a = parseInt(Math.random()*100+1)
+		 su.push(a);
+	}
+	
+	//출력 
+	document.getElementById('result1').innerHTML += su + "<br>";
+	
+}
+</script>
+</head>
+<body>
+<div class="box">
+    <h3>버튼을 클릭하면 랜덤수 5개를 발생<br>
+    배열에 저장 후 출력 
+    </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="member">
+
+    <select id="selectAll" resultClass="member" >
+         select * from member
+    </select>
+    
+    <select  id="idSearch" resultClass="member" parameterClass="string">
+         select *  from member   where mem_id=#data#
+    </select>
+    
+   <!--  아이디 중복 검사  -->
+   <select id="checkById" resultClass="string" parameterClass="string">
+      select mem_id  from member   where mem_id = #data#
+   </select>
+   
+   <!-- 저장하기  -->
+   <insert id="insertMember" parameterClass="member" >
+      insert into member(
+          MEM_ID,
+          MEM_PASS,
+          MEM_NAME,
+          MEM_BIR,
+          MEM_ZIP,
+          MEM_ADD1,
+          MEM_ADD2,
+          MEM_HP,
+          MEM_MAIL) 
+     values (
+      #mem_id#,
+      #mem_pass#,
+      #mem_name#,
+      #mem_bir#,
+      #mem_zip#,
+      #mem_add1#,
+      #mem_add2#,
+      #mem_hp# ,
+      #mem_mail#
+    )
+    
+     <!-- result결과값을 생성 한다  -->
+     <selectKey keyProperty="mem_id" resultClass="string">
+        select MEM_ID  from member  where MEM_ID = #mem_id# 
+     </selectKey>
+    
+   </insert>
+    
+</sqlMap>
+
+
+
+
+
+
+
+
+
+
+

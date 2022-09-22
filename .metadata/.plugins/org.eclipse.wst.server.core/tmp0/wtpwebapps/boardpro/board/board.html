@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+ <script src="../js/board.js"></script>
+
+<style>
+.box{
+  margin : 10px;
+}
+#pagelist{
+  margin : 10px;
+  margin-left : 20%;
+}
+
+ .p1{
+    width :75%;
+    float: left;
+ }
+   .p2{
+     width : 20%;
+     float : right ;
+  }
+  .p3{
+     clear : both ;
+  }
+  
+  input[name=reply]{
+    height : 50px;
+    vertical-align: top;
+  }
+  
+  .rep-body{
+     border : 1px solid gray;
+     background : #faf1fd;
+     margin : 5px;
+  }
+  textarea {
+	box-sizing: border-box;
+	width : calc(80% - 1%);
+ }
+</style>
+
+<script>
+$(function(){
+	listPageServer(1);
+	
+	//이전버튼 이벤트 
+	$(document).on('click','.prev', function(){
+		// alert( $('.plist a').first().text());
+		 
+		currentPage = parseInt($('.plist a').first().text().trim() ) -1 ;
+		listPageServer(currentPage);
+	})
+	
+	//다음버튼 이벤트 
+	$(document).on('click', '.next', function(){
+		 //alert($('.plist a').last().text());
+		currentPage = parseInt( $('.plist a').last().text().trim() )  + 1;
+		listPageServer(currentPage);
+	})
+	
+	//페이지번호 이벤트 
+	$(document).on('click','.plist a', function(){
+		//alert( $(this).text());
+		currentPage  = $(this).text().trim();
+		listPageServer(currentPage);
+		
+	})
+	
+	//버튼, 제목  에 대한 이벤트 
+	$(document).on('click', '.action', function(){
+		bname =   $(this).attr('name')
+		num =   $(this).attr('idx')
+		
+		if(bname == "delete"){
+			alert(num + "번글 삭제 ");
+		}else if(bname == "modify"){
+			alert(num + "번글 수정 ");
+		}else if(bname == "reply"){
+			alert(num + "번글에 댓글을 답니다 ");
+			
+			//입력한 댓글 내용 가져오기
+			cont = $(this).prev().val();
+			console.log(cont);
+			
+			//replytap저장 , name, bonum, cont 
+			reply =  {  }; //객체 선언 , 동적으로 속성를 추가 
+			
+			n1= parseInt(Math.random()*100+1);
+			n2 = String.fromCharCode(Math.random()*26 + 65);   //A~Z
+			n3 = String.fromCharCode(Math.random()*26 + 97);   //a~z
+			
+			reply.name = n1+ n2+n3;
+			reply.bonum = num;
+			reply.cont = cont;
+			
+			$(this).prev().val("");
+			
+			//ajax실행 하는 함수 
+			replySaveServer(this);
+			
+		}else if(bname == "title"){
+			//제목을 클릭 - 댓글 리스트 출력 
+			
+			//ajax실행 하는 함수
+			replyListServer(this);
+		}
+	})
+	
+})
+</script>
+
+</head>
+<body>
+
+<div class="box">
+</div>
+<br><br>
+<div id="pagelist"></div>
+ 
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table{
+    border : 3px solid blue;
+    margin : 30px;
+    border-collapse:  collapse;
+}
+
+ td{
+   width : 200px;
+   height : 50px;
+   text-align: center;
+ }
+ #tab2{
+   border : 20px outset red;
+   /* border-collapse: collapse; */
+ }
+ 
+ #tab2 td{
+    border : 2px dashed blue;
+   
+    width : 250px;
+    height : 60px;
+ }
+ 
+ 
+ #tab3{
+   border : 3px solid blue;
+ }
+ #tab3 th{
+     height : 60px;
+     font-size : 1.5em;
+ }
+ 
+ #tab3 td{
+  	   width :  100px;
+       height : 50px;
+ }
+ 
+ #tab3 #info{
+     width : 500px;
+ }
+ #tab3 .tdinfo{
+  text-align: left;
+  padding : 5px;
+ }
+ 
+ #tab3 #first{
+     background-color : blue;
+     color  : white;
+     font-size : 2.5em;
+ }
+ caption{
+    font-size : 1.5em;
+    margin : 20px;
+    caption-side: bottom;
+ }
+ 
+</style>
+</head>
+<body>
+<table border="1">
+     <tr>
+       <td>1</td>
+       <td>2</td>
+       <td>3</td>
+    </tr>
+    
+    <tr>
+       <td rowspan="2">1</td>
+       <td>2</td>
+       <td>3</td>
+    </tr>
+    
+    
+    <tr>
+       <td>1</td>
+       <td>2</td>
+     
+    </tr>
+    
+    
+    <tr>
+       <td colspan="3">1</td>
+       
+    </tr>
+ </table>
+ 
+ 
+ 
+ <table id="tab2" border="1">
+ <tr>
+   <td colspan="2"></td>
+   <td colspan="2"></td>
+   <td></td>
+   <td></td>
+ </tr>
+ 
+ <tr>
+   <td colspan="4"></td>
+   <td colspan="2"></td>
+  </tr>
+  
+  <tr>
+   <td colspan="4"></td>
+   <td colspan="2" rowspan="2"></td>
+  </tr>
+  
+  <tr> 
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+</table>
+
+
+<table border="1" id="tab3">
+    <caption>평생교육원강좌</caption>
+ 	<tr>
+ 	 	<th id="first" colspan="5">평생교육원 강좌 소개 - 2022 년도 1 학기</th>
+ 	</tr>
+ 	
+ 	<tr>
+ 		<th>강좌이름</th>
+ 		<th>강의자</th>
+ 		<th id="info">소개</th>
+ 		<th>강좌코드</th>
+ 		<th>실습비</th>
+ 	</tr>
+ 	
+ 	<tr>
+ 	   <td>뎃생과 유화</td>
+ 	   <td>김철수</td>
+ 	   <td class="tdinfo">모든 미술영역의 뼈대를 이루는 뎃생의 기본실력을 체계적으로 다루며,
+ 	   유화에서는 재료를 다루는 방벙에서부터 다양한 표현기법에 이르기까지 전문적인 미술인으로 
+ 	   입문할 수 있도록 각 개인의 수준에 맟추어 개인별, 단계별로 지도합니다
+ 	   </td>
+ 	   <td>H27</td>
+ 	   <td>100,000원</td>
+ 	</tr>
+ 	
+ 	<tr>
+ 	   <td>바이올린</td>
+ 	   <td>홍길동</td>
+ 	   <td class="tdinfo"></td>
+ 	   <td>H28</td>
+ 	   <td>200,000원</td>
+ 	</tr>
+ 	
+ 	<tr>
+ 	   <td>성악아카데미</td>
+ 	   <td>김호성</td>
+ 	   <td class="tdinfo"></td>
+ 	   <td>H29</td>
+ 	   <td>300,000원</td>
+ 	</tr>
+ 	
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+	  
+	  $('#hidbut').on('click', function(){
+		  
+		   str1 = "";
+		   $('#result1 p:hidden').each(function(i){
+			  //$( $('#result1 p:hidden')[i])
+			  
+			   str1 +=  $(this).text() + "<br>";
+		   })
+		   
+		   $('#hidden').html(str1);
+	  })
+	  
+	  $('#visbut').on('click', function(){
+		  
+		  str ="";
+		  
+		  $('#result1 p:visible').each(function(){
+			   str +=  $(this).text() + "<br>";
+		  })
+		  
+		  $('#visible').html(str);
+ 
+	  })
+	  
+	  $('#hidbut2').on('click', function(){
+		  
+		  str ="";
+		  $('#testForm *:hidden').each(function(){
+			  
+			 // alert(this.tagName);
+			  
+			   if(this.tagName  == "INPUT"){
+				  str +=  'input 객체  [ ' + $(this).attr('name');
+				  str += ' : ' +  $(this).val() + ' ] <br>'
+			   }else {
+				  str += this.tagName + ' 객체 ' + $(this).text() + "<br>" 
+			   }
+			 
+		  })
+		  
+		  $('#hidden2').html(str);
+		  
+	  })
+	  
+	  $('#visbut2').on('click', function(){
+		  str ="";
+		  $('#testForm *:visible').each(function(){
+			  
+			 // alert(this.tagName);
+			  
+			   if(this.tagName  == "INPUT"){
+				   
+				     vtype = $(this).attr('type');
+				     if(vtype == 'radio'){
+					      // alert($(this).prop('checked'));
+					   	 	if( $(this).prop('checked')){
+					    		 str += $(this).attr('name') + " : " + $(this).val() + "<br>"
+					     	}
+				     }else{
+				    	 str +=  'input 객체  [ ' + $(this).attr('name');
+						 str += ' : ' +  $(this).val() + ' ] <br>'
+				     }
+				
+			   }else if(this.tagName != "BR"){
+				  str += this.tagName + ' 객체 ' + $(this).text() + "<br>" 
+			   }
+		  })
+		  
+		  $('#visible2').html(str);
+	  })
+	  
+ })
+</script>
+
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" id="hidbut" value="hidden" >
+    <input type="button" id="visbut" value="visible" >
+    
+    <div id="result1">
+          <p> 보이는 문단</p>
+		  <p style="visibility:hidden;">숨겨진 문단</p>
+		  <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+		  <p style="opacity:0;"> 투명한 문단</p>
+    </div>
+    
+   <div id="hidden"></div>
+   <div id="visible"></div>
+    
+ </div>
+ 
+ <div class="box">
+    <h3>
+    속성값 가져오기 <br>
+      attr('속성명') - > attr('name') attr('type') <br>
+    속성상태값 가져오기  <br>
+      attr('checked') - checked/undefined - 본문의 설정된값을 가져오기  <br>
+      prop('checked') - true/ false  - 실행시 동적으로 변하는 상태값을 가져온다 <br>
+    
+    </h3>
+    <input type="button" id="hidbut2" value="hidden" >
+    <input type="button" id="visbut2" value="visible" >
+    
+    <div id="result2">
+          <form id="testForm"> 
+				<input type="hidden" name="userAge" value="33">
+				<input type="hidden" name="userCity" value="대전">
+				I D : <input type="text" name="userID" value="hong">  
+				<span style="display:none">ID가 중복됩니다. </span> <br>  
+				이름 : <input type="text" name="userName" value="홍길동">   
+				<span style="visibility:hidden">이름을 입력하세요</span><br>  
+				성별 : <input type="radio" name="sung" value="남" >남자  
+				<input type="radio" name="sung" value="여">여자  
+		 </form>
+    </div>
+    
+   <div id="hidden2"></div>
+   <div id="visible2"></div>
+    
+ </div>
+ 
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

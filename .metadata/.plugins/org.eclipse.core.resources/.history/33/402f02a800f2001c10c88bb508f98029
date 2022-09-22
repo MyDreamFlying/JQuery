@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 보이기</title>
+<style>
+img{
+  width : 500px;
+  height : 450px;
+}
+</style>
+</head>
+<body>
+  img태그의 alt속성 :<br>
+    alternate : 대체 문자 <br>
+    이미지가 보이지 않을때 나타나는 문자<br>
+   <br><br>
+   <img src="../images/커피1.jpg" alt="커피121322.jpg3234">
+  
+</body>
+</html>

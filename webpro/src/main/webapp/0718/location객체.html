@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+function proc1(){
+	 str = "haostname = " + location.hostname  + "<br>"
+	str += "pathname = " + location.pathname + "<br>";
+	str += "protocol = " + location.protocol + "<br>";
+	
+	document.querySelector("#result1").innerHTML = str;
+	
+}
+
+function proc2(){
+	location.href="window열기.html";
+}
+
+function proc3(){
+	location.href="../0715/String객체.html";
+}
+
+function goPage(){
+	location.replace('../0701/fieldset.jsp?id=a001&name=korea');
+}
+
+function reloadPage(){
+	//문자열을 랜덤으로 출력 
+	arr =["사랑은 늘 도망가", "별빛같은 나의 사랑아", "우리들의 블루스",
+		"사랑해 진짜", "이제 나만 믿어요", "다시 만날수 있을까", "손이 참 곱던 그대"];
+
+    rand = parseInt(Math.random() * arr.length);
+    
+     str = "<h1>" +   arr[rand] + "</h1>";
+     
+     document.getElementById('result').innerHTML = str;
+     
+     setTimeout(function(){
+    	  location.reload();
+     }, 3000);
+}
+
+</script>
+<style>
+ h1{
+    color : red;   
+   }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>location.href: 페이지 이동<br>
+    자바스크립트를 통해서 페이지 이동<br>
+    onclick에서 페이지이동을 설정 할 수 있다 <br>
+    </h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <input type="button" value="확인"
+       onclick="location.href='timeout_interval.html'">
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>location.href: 페이지 이동<br>
+    a태그 에서 자바스크립트를 통해서 페이지 이동<br>
+    a href 페이지이동을 설정 할 수 있다 <br>
+    </h3>
+    
+    a태그의 href에서 javascript의 함수를 호출 <br>
+    <a href="javascript:proc3()">proc3()호출</a>
+    <br>
+    a태그의 onclick=proc3()함수 호출<br>
+    <a href="#" onclick="proc3()">
+     proc3()호출
+    </a><br>
+    
+    a태그의 onclick='location.href='<br>
+    <a href="#" onclick="location.href='timeout_interval.html'">
+    setTimeout_interval
+    </a>
+ </div>
+ 
+ <div class="box">
+    <h3>location.href: get방식을 이용해서 서버로 보내기 </h3>
+    <button type="button" 
+        onclick="location.href='../0701/fieldset.jsp?id=a001&name=홍길동'">공지사항보기</button>
+    
+</div> 
+
+<div class="box">
+    <h3>location.replace(url)  : 새로운 문서로 대체 <br>
+    뒤로가기가 실행되지 않는다</h3>
+    <button type="button" onclick="goPage()">공지사항보기</button>
+    <button type="button" 
+       onclick="location.replace('../0701/fieldset.jsp?id=a001&name=korea')">공지사항보기</button>
+    
+</div> 
+
+<div class="box">
+    <h3>location.reload()  : 현재문서를 다시 로드 <br>
+    </h3>
+    <button type="button" onclick="reloadPage()">공지사항보기</button>
+    <br>
+    <div id="result"></div>
+</div> 
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('#btn1').on('click', function(){
+		//$('img').attr('title', '이미지1');
+		
+		$('img').attr('title', function(){
+			 
+			valt =  $(this).attr('alt');
+			
+			start =0;
+			end = valt.indexOf(".");
+			
+			return   valt.slice(start, end)
+			
+		})
+	})
+	
+	
+	$('#result2 img').on('mouseover', function(){
+		//src의 속성 값을 가져와서 변수에 대입 
+		a = $(this).attr('src');
+		
+		//src2의 속성값을 가져와서 src의 속성갑으로 설정한다 
+		$(this).attr('src', $(this).attr('src2'));
+	})
+	
+	$('#result2 img').on('mouseout', function(){
+		
+		 //src의 속성 값을 a의값으로 설정 
+		 $(this).attr('src', a);
+	})
+	
+})
+</script>
+<style>
+img{
+  width : 100px;
+  height : 100px;
+  margin : 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" value="확인" id="btn1">
+    <div id="result1">
+        <img src="../images/단풍.jpg" alt="단풍.jpg">
+        <img src="../images/수국.jpg" alt="수국.jpg">
+        <img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg">
+        <img src="../images/대나무숲.jpg" alt="대나무숲.jpg">
+        <img src="../images/펭귄.jpg" alt="펭귄.jpg">   
+    </div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3></h3>
+    <input type="button" value="확인" id="btn2">
+    <div id="result2">
+        <img src="../images/단풍.jpg" src2="../images/가구1.jpg"  alt="단풍.jpg">
+        <img src="../images/수국.jpg"  src2="../images/셔틀콕.jpg" alt="수국.jpg">
+        <img src="../images/딸기스무디.jpg"  src2="../images/Koala.jpg" alt="딸기스무디.jpg">
+        <img src="../images/대나무숲.jpg"  src2="../images/국화.jpg" alt="대나무숲.jpg">
+        <img src="../images/펭귄.jpg" src2="../images/아메리카노.jpg" alt="펭귄.jpg">   
+    </div>
+ </div> 
+ 
+ 
+</body>
+</html>
+
+
+
+

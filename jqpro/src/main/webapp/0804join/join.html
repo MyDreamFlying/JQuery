@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--  <link rel="stylesheet" href="../css/mystyle.css"> -->
+
+<style>
+tr:hover{
+    background : lime;
+}
+</style>
+
+
+<script>
+$(function(){
+	
+	//데이타 유효성 체크 
+	$('#uid').on('keyup', function(){
+		idvalue =  $(this).val().trim();
+		
+		//정규식 
+		idreg = /^[a-z][a-zA-Z0-9]{3,10}$/
+		
+		//test() - 정규식 체크 true/ false 를 리턴 
+		if(  idreg.test(idvalue)){
+			 $(this).css('border' , '2px solid blue');
+		}else{
+			$(this).css('border' , '2px solid red');
+		}
+		
+	})
+	
+	$('#uname').on('keyup', function(){
+		namevalue = $(this).val().trim();
+		
+		namereg = /^[가-힣]{2,10}$/
+		
+		if( namereg.test(namevalue)){
+				 $(this).css('border' , '2px solid blue');
+		}else{
+				$(this).css('border' , '2px solid red');
+		}
+		
+	})
+	
+	//비밀번호
+	
+	//이메일 
+	
+	//전화번호 
+	
+	
+	//전송 - submit 
+	$('form').on('submit', function(){
+		
+		//입력한 모든 값을 가져온다 
+		
+		//데이타 유효성 체크 
+		
+		
+		//-------자동으로 데이타를 완성 --------
+		//form의 name속성으로  키를 구성한다 
+	    datas = $('form').serialize();  //"mem_id". "mem_name"
+		//datas = $('form').serializeArray();
+		
+		
+		//--직접코딩 키:value  일때 키 는  임의로 구성------------------------//
+		/* datas =  {
+				"id"   :  $('#uid').val().trim(), 
+				"name" : $('#uname').val().trim(),
+				"pwd"  : $('#pwd').val().trim(),
+				"mail" : $('#umail').val().trim(),
+				"hp"   : $('#uhp').val().trim(),
+				"zip"  : $('#uzip').val().trim(),
+				"add1" : $('#uadd1').val().trim(),
+				"add2" : $('#uadd2').val().trim(),
+				"bir"  : $('#ubir').val().trim()
+		    }
+		 */
+		/* datas = "id=" + $('#uid').val() + 
+		        "&name=" + $('#uname').val() +
+		        "&pwd="  + $('#pwd').val() + 
+		        "&mail=" + $('#umail').val() +
+		        "&hp="   + $('#uhp').val() +
+		        "&zip="  +  $('#uzip').val() +
+		        "&add1=" + $('#uadd1').val() +
+		        "&add2=" + $('#uadd2').val() +
+		        "&bir="  + $('#ubir').val()
+		 */
+		 console.log(datas)
+		
+		 $.ajax({
+			url : '/jqpro/Insert.do',
+			data :  datas,
+			type : 'post',
+			success : function(res){
+				$('#joinsub').text(res.flag).css('color', 'red');
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status)
+			},
+			dataType : 'json'
+			
+		}) 
+		
+	})
+	
+	
+	// 모달창에서 번호 검색 결과중 한 행을 선택하면 
+	$(document).on('click', 'tr', function(){
+		 zcode =  $('td', this).eq(0).text();
+		 addr = $('td', this).eq(1).text();
+		 
+		 
+		 $('#uzip').val(zcode);
+		 $('#uadd1').val(addr);
+		 
+		$('#myModal').modal('hide');
+		$('#myModal #dong').val("");
+		$('#myModal #result1').empty();
+
+	})
+	
+	
+	/* 번호검색  modal버튼클릭  - 확인 버튼  */
+	$('#bdong').on('click', function(){
+ 		dongvalue = $('#dong').val().trim();
+		 
+		 if(dongvalue.length < 1){
+			 alert("동을 입력하세요");
+			 return false;
+		 }
+		 
+		 console.log(dongvalue);
+		 
+		 $.ajax({
+			 url : '/jqpro/SelectByDong.do',
+			 data : { "dong" : dongvalue},
+			 type : 'get',
+			 success : function(res){
+				
+				 code = "<table>";
+				 code +="<tr><td>우편번호</td>";
+				 code += "<td>주소</td>";
+				 code += "<td>번지</td></tr>";
+				 
+				 $.each(res, function(i, v){
+					 
+					 code +="<tr><td>" + v.code + "</td>";
+					 code += "<td>" + v.addr + "</td>";
+					 code += "<td>" + v.bunji + "</td></tr>";
+				 })
+				 
+				 code += "</table>";
+				 
+				 $('#result1').html(code);
+				 
+			 },
+			 error : function(xhr){
+				 alert("상태 : " + xhr.status);
+			 },
+			 dataType : 'json'
+			 
+		 })
+	})
+	
+	
+	$('#zip').on('click', function(){
+		window.open("inputDong.html", "동입력", "width=500 height=500")
+	})
+	
+	
+	//중복검사
+	$('#checkid').on('click', function(){
+		
+		idvalue = $('#uid').val().trim();
+		
+		if(idvalue.length < 1) {
+			alert("id를 입력하세요");
+			return false;
+		}
+		
+		console.log(idvalue);
+		$.ajax({
+			url : '/jqpro/CheckById.do',
+			type : 'get',
+			data : { "id"  :  idvalue  },
+			success : function(res){
+				$('#idspan').text(res.flag).css('color', 'red');
+			},
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+		
+		
+		
+	})
+	
+	
+})
+
+</script>
+</head>
+<body>
+
+
+<div class="container">
+ 
+  <form class="needs-validation" novalidate onsubmit="return false;" >
+  
+     <div class="form-group">
+      <label  for="uid">아이디</label>
+      <input type="button" id="checkid"  value="중복검사" class="btn btn-outline-primary btn-sm">
+      <span id="idspan"></span>
+      
+      <input type="text" class="form-control"  id="uid"  name="mem_id" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="uname">이름</label>
+      <input type="text" class="form-control" id="uname"  name="mem_name" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="pwd">비밀번호</label>
+      <input type="password" class="form-control" id="pwd" name="mem_pass" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="ubir">생년월일</label>
+      <input type="date" class="form-control" id="ubir"  name="mem_bir" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="umail">이메일</label>
+      <input type="text" class="form-control" id="umail" name="mem_mail" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="uhp">전화번호</label>
+      <input type="text" class="form-control" id="uhp"  name="mem_hp" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="uzip">우편번호</label>
+      <input type="button" value="번호검색" id="zip" class="btn btn-outline-primary btn-sm">
+       <input type="button" value="번호검색Modal" data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary btn-sm">
+      <input type="text" class="form-control" id="uzip"  name="mem_zip" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="uadd1">주소</label>
+      <input type="text" class="form-control" id="uadd1"  name="mem_add1" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="uadd2">상세주소</label>
+      <input type="text" class="form-control" id="uadd2"  name="mem_add2" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <span id="joinsub"></span>
+  </form>
+</div>
+    
+
+ 
+ 
+ 
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         	<div class="box">
+			    <h3>동입력</h3>
+			    <input type="text" id="dong" >
+			    <input id="bdong"   type="button" value="확인">
+			    <div id="result1"></div>
+			 </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

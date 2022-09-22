@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('.btn1').on('click', function(){
+		
+		vp = $('<p></p>' , {
+			   'class' : 'ptag',
+			   'text'  : '무궁화 꽃이 피엇습니다'
+    	})
+		
+		vp.appendTo($('#result1'));
+	})
+	
+	
+	/* $('p').on('click', function(){
+		 alert('hello');
+	}) */
+	
+	$(document).on('click', 'p', function(){
+		alert('hello')
+	})
+	
+	$('.btn2').on('click', function(){
+		 $(document).off('click', 'p')
+		
+	})
+})
+</script>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" value="확인" class="btn1">
+    <input type="button" value="해제" class="btn2">
+    <p>능소화 꽃이 피었습니다</p>
+    <div id="result1"></div>
+ </div>
+ 
+</body>
+</html>
+
+
+
+
+
+

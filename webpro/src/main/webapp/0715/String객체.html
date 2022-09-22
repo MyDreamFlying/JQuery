@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+
+strarr = "I Love Korea  ";
+
+str = "";
+
+function proc1(but){
+
+	
+	 //alert(but.value);
+	 bvalue = but.value;
+	 
+	 if(bvalue == "charAt"){
+		res = strarr.charAt(7);
+		str += `strarr.charAt(7) : ${res} <br> `;
+		
+	 }else if(bvalue == "charCodeAt"){
+		res =  strarr.charCodeAt(7);
+		str += `strarr.charCodeAt(7) : ${res} <br>` ;
+	 }else if(bvalue == "indexOf"){
+		res =  strarr.indexOf('K');
+		str += `strarr.indexOf('K') : ${res} <br>`;
+	 }
+	 
+	 document.getElementById('result1').innerHTML = str;
+}
+str2 ="";
+function proc2(but){
+	
+	bvalue =   but.value;
+	
+	if(bvalue == "substring"){
+		res =  strarr.substring(4,8);
+		str2 +=`strarr.substring(4,8) : ` 
+		
+	}else if(bvalue == "slice"){
+		res = strarr.slice(4,8);
+		str2 +=`strarr.slice(4,8) `
+		
+	}else if(bvalue == "substr"){
+		res = strarr.substr(4, 8);
+		str2 += `strarr.substr(4, 8) : `
+	}
+	
+	str2 += res +"<br>";
+	
+	document.getElementById('result2').innerHTML = str2;
+}
+
+window.onload = function(){
+	//bin = document.getElementsByClassName('bin');
+	bin = document.querySelectorAll('.bin');
+	
+	for(i=0; i<bin.length; i++){
+		bin[i].addEventListener('click', strSearch)
+	}
+}
+
+str3 ="";
+function strSearch(){
+
+	//함수룰 호출하는 bin객체를 this로 받는다 
+	//alert(this.value);
+	
+	 bvalue = this.value ;
+	
+	//Korea문자의 위치값  가져오기
+	kstr = strarr.indexOf('K') ; //7번째 
+	klength =  "Korea".length;  //5 글자 
+	
+	if(bvalue == "substring"){
+		res = strarr.substring(kstr, kstr+ klength);
+		str3 +=`strarr.substring(${kstr}, ${kstr+ klength} )`
+		 
+	}else if(bvalue == "slice"){
+		res = strarr.slice(kstr, kstr+ klength);
+		str3 +=`strarr.slice(${kstr}, ${kstr+ klength} )`
+		
+	}else if(bvalue == "substr"){
+		res = strarr.substr(kstr, klength);
+		str3 +=`strarr.substr(${kstr}, ${klength} )`
+	}
+	
+	str3 += `${res} <br>`;
+	
+	document.getElementById('result3').innerHTML = str3;
+}
+
+/* function proc4(){ }
+proc4 = function(){ } */
+
+proc4 = () => {
+	strlen =  strarr.length;
+	
+	arr = strarr.split(" ");
+	arrlen = arr.length;
+	
+	alert(strlen + " " + arrlen );
+	console.log(strlen,arrlen );
+	
+	document.getElementById('result4').innerHTML = arr;
+	
+	/* str = "";
+	for(i=0; i<arrlen; i++){
+		str  += i + "번째 : " + arr[i] + "<br>";
+	}
+
+	document.getElementById('result4').innerHTML = str; */
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+    <h3>strarr = "I Love Korea  "</h3>
+    <input type="button" value="charAt" onclick="proc1(this)">
+    <input type="button" value="charCodeAt" onclick="proc1(this)">
+     <input type="button" value="indexOf" onclick="proc1(this)">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>strarr = "I Love Korea  "</h3>
+    <input type="button" value="substring" onclick="proc2(this)">
+    <input type="button" value="slice" onclick="proc2(this)">
+    <input type="button" value="substr" onclick="proc2(this)">
+    <div id="result2"></div>
+ </div>
+ 
+  <div class="box">
+    <h3>strarr = "I Love Korea 대한민국 만세 "<br>
+     Korea의 문자를 추출 <br>
+     일괄 이벤트 등록  - addEventListener('이벤트종류', function이름)
+    </h3>
+    <input type="button"  class="bin" value="substring" >
+    <input type="button"  class="bin" value="slice" >
+    <input type="button"  class="bin" value="substr" >
+    <div id="result3"></div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>strarr = "I Love Korea 대한민국 만세 "<br>
+     split : 문자열을 배열로 변환 <br>
+    </h3>
+    <input type="button"  value="split" onclick="proc4()" >
+    <div id="result4"></div>
+ </div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

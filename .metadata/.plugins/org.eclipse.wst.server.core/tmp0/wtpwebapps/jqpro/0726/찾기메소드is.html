@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	 $('p').on('click', function(){
+		 
+		 //랜덤 발생 - r,g,b
+		
+		 
+		// a =   $(this).parent().is('.dred');
+		 if($(this).parent().is('.dred')){
+			 //클릭한 p태그를 복사해서 부모에 붙여넣기하고 글자색을 빨간색으로 변경한다
+			 //$(this).clone(true).appendTo($(this).parent()).css('color', 'red');
+			
+			 
+		 }else {
+			 alert("작업대상이 아닙니다");
+		 }
+	 })
+
+})
+ 
+
+
+</script>
+
+
+
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" id="btn1" value="확인" >
+    <div id="result1">
+        <div class="dred">
+            <p>사랑은 늘 도망가</p>
+        </div>
+    
+        <p>별빛같은 나의 사랑아</p>
+    
+        <div class="dred">
+            <p>다시 만날 수 있을까</p>
+        </div>
+        
+    </div>
+ </div>
+ 
+ 
+ 
+
+
+
+</body>
+</html>

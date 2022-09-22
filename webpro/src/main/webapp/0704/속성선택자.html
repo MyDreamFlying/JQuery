@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"  href="../css/mystyle.css">
+
+<style>
+
+img{
+   width : 100px;
+   height : 100px;
+}
+img:hover{
+   width : 150px;
+   height : 150px;
+}
+img[title]{
+    border : 3px solid red;
+}
+img[title="무지개1"]{
+   border : 10px outset orange;
+}
+img[alt="무지게5.png"]{
+   border : 20px ridge red;
+}
+/*#m2{}
+img#m2{ } */
+
+img[id=m2]{
+   border : 5px dotted green;
+}
+
+body , p{
+   box-sizing: border-box;
+}
+p{
+  width : calc(40% - 2%);
+  height : 200px;
+  border : 5px solid #f1dda9;
+  float : left;
+  margin : 20px
+}
+p[id=p3]{ 
+   background :   rgb(250, 124, 189);
+}
+#p4{
+  background :   rgba(250, 124, 189, 0.5);
+ }
+
+pre#pr2{
+   clear  : both;
+}
+span{
+   color : red;
+}
+</style>
+
+<script type="text/javascript">
+  function changeColor(pobj){
+	  
+	  //랜덤 발생 0~255
+	  a =  parseInt( Math.random()*255);
+	  b = parseInt( Math.random()*255);
+	  c = parseInt( Math.random()*255); 
+	  
+	  console.log(a, b, c);
+	  
+	  pobj.style.backgroundColor = 'rgb('  + 
+			                         a + ',' + 
+			                         b + ',' +
+			                         c + ')';
+	  //rgba(143,250,189, 0.4);
+  }
+</script>
+
+</head>
+<body>
+<img  title="무지개1" src="../images/무지게1.png" alt="무지게1.png">
+<img  id="m2" src="../images/무지게2.png" alt="무지게2.png">
+<img  src="../images/무지게3.png" alt="무지게3.png">
+<img  title="무지개4" src="../images/무지게4.png" alt="무지게4.png">
+<img src="../images/무지게5.png" alt="무지게5.png">
+
+<pre>
+  p태그를 클릭하면  changeColor() 함수호출 - 랜덤으로 배경색을 변경 
+   &lt;p id="p1" onclick="changeColor(<span>this</span>)">&lt;/p>
+    
+  function changeColor(pobj){
+	  
+	  //랜덤 발생 0~255
+	  a =  parseInt( Math.random()*255);
+	  b = parseInt( Math.random()*255);
+	  c = parseInt( Math.random()*255); 
+	  
+	  console.log(a, b, c);
+	  
+	  pobj.style.backgroundColor = 'rgba('  + 
+			    a + ',' +  b + ',' + c + ')';
+ }
+</pre>
+
+<p id="p1" onclick="changeColor(this)"></p>
+<p id="p2" onclick="changeColor(this)"></p>
+
+
+<pre id="pr2">
+  rgb(250, 124, 189)
+  rgba(250, 124, 189,0.5)
+</pre>
+
+<p id="p3"></p>
+<p id="p4"></p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

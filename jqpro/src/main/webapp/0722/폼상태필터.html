@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function(){
+	
+	//사용 불가능한 요소  선택
+	$('#result1 form *:disabled').css('border', '1px solid red');
+	
+	//사용가능한 요소 선택 
+	$('#result1 form *:enabled').css('background', 'green')
+	
+	 
+	
+	 $('#btn2').on('click', function(){
+		 str = "";
+		 
+		 $(':checkbox:checked').each(function(i){
+			 str += $(this).val() + " "
+		 })
+		 
+		  alert(str);
+	 })
+	 
+	/*jQuery selectbox 선택된 값(value) 가져오기
+	$("#selectbox option:selected").val();
+	$("#selectbox").val();
+	$('select[name="selectName"]').val();
+  */
+	 
+	 $('#spring').on('change', function(){
+		 str2 = "";
+	
+		
+		/*//정상
+		$('option:selected' , this).each(function(){
+			  str2 +=   $(this).val() + " ";
+			  $(this).css('border', '2px solid red');
+		})*/
+		
+		
+		 //정상
+	     str2  += $(this).val();
+		     
+		 alert(str2);
+	 })
+	 
+	
+	 
+})
+</script>
+
+
+<style>
+select {
+  width : 200px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3>
+      상태를 나타내는 속성 
+      disabled
+      selected  : select  option 
+      checked : checkbox , radio
+    </h3>
+    <input type="button" id="btn1" value="확인">
+    <div id="result1">
+	     <form> 
+				<input type="text" name="id" disabled="disabled" ><br>
+				<input type="password" name="pass"  ><br>
+				<br>
+				<select name="disSelect" >
+				      <option>Option1</option>
+				      <option>Option2</option>
+				      <option selected="selected">Option3</option>
+				      <option>Option4</option>
+				</select>
+				<br><br>
+				<textarea name="enTextarea" rows=10 cols=20 >text</textarea><br>
+				<input type="button" value="확인"  disabled="disabled"  onclick="alert('hello')"> <br>
+				
+		</form>
+    </div>
+ </div>
+ 
+ 
+ 
+ <div class="box">
+    <h3>     
+    </h3>
+
+    <div id="result2">
+	    <form>
+			취 미 :
+			 <input type="checkbox" name="hobby" value="여행" checked="checked" >여행
+			 <input type="checkbox" name="hobby" value="장기">장기
+			 <input type="checkbox" name="hobby" value="바둑">바둑
+			 <input type="checkbox" name="hobby" value="독서" >독서
+			 <input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+			 <input type="button"  id="btn2"  value="전송">
+		</form>
+	    
+    </div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3> 
+       select 의 change이벤트 , click이벤트     
+    </h3>
+
+    <div id="result3">
+	    <form>
+			봄소식 : <br>
+			 <select name="spring" id="spring"  multiple size="6">
+				<option>개나리</option>
+				<option selected="selected">진달래</option>
+				<option>민들레</option>
+				<option selected>벚꽃</option>
+				<option>목련</option>
+				<option>철쭉</option>
+			 </select>
+		</form>
+   </div>
+ </div>
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

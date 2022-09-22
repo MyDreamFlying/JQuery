@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+   width : 80%;
+   height : 500px;
+  border : 3px dotted blue; 
+   padding : 10px;
+   
+   box-sizing:  border-box;
+}
+
+.dd{
+    border : 1px dotted red; 
+   height : 65%;
+   
+ }
+ 
+ #d2{
+    width : calc(25% - 2px);
+    float : left;
+    
+ }
+ #d3{
+   width :  calc(75% - 1%);
+   float : right;
+   overflow : auto; /*  hidden scroll */
+   
+ }
+ img{
+     width : 100%;
+     height : 100%;
+ }
+ 
+ span{
+   background-color : yellow;
+   display : inline-block;
+   width : 120px;
+   height : 40px;
+ }
+ h1{
+   text-align: center;
+ } 
+</style>
+</head>
+<body>
+<pre>
+브라우저의 크기에 따라서 각 요소의 크기도 조절하기 위해서 
+box-sizing :
+ border-box  : 테두리와 여백의 크기를 포함시킨다
+ content-box : 테두리와 여백의 크기를 포함시키지 않고 내용만 포함한다 
+ 
+ width : calc(70% - 1%)
+ 
+ 블럭요소  : p, div, table, ul, ol, iframe , h1 ~ h6
+ 인라인 요소  : b, em, i, strong   span, a
+
+ 인라인 요소는 가로길이 세로길이를 지정할 수 없다 
+ display 속성을 이용해서 가로, 세로 길아를 설정한다 
+ display :  none, inline, block , inline-block
+
+</pre>
+
+
+<div>
+  
+   <h1>사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자</h1>
+   <div  class="dd" id="d2">
+     <img src="../images/사자.jpg"  alt="사자.jpg">
+   </div>
+
+
+   <div class="dd"  id="d3">
+    북아프리카와 중동, 서아시아, 유럽, 아라비아에서도 과거엔 서식했었으나 유럽
+     지역에서는 기원전부터 씨가 말랐고, 인도를 제외한 아시아 지역에서도 
+     19~20세기 부터 하나둘씩 사라져갔다. 북아프리카에서도 1920년 모로코에서 
+     사살되어 이 지역들의 야생 사자는<b> 멸종된 상태</b>이다. 
+     지금은 대부분이 남아프리카 사바나 일대에 서식하고 있고,
+      남서아프리카의 나미비아 사막[1]에 밀렵으로 멸종된 줄 알았던 사막
+       사자가 살아남아 있으며 사헬 지대에도 일부 살아남아 있다.
+        인도의 기르숲이란 곳에도 사자가 약간 남아있기는 하다. 현재도
+         개체수가 계속 감소 중인 사자기에,[2]나중엔 일부 보호구역에서 소수만이 
+         남을 것이다. 간지나는 비주얼과 강인한 사냥 능력으로 오랫동안 
+    <span>'백수의 왕'</span>으로 불리우며 <span>왕의 상징</span>으로 여겨지는 등 인기를 누려온 동물이다.
+    
+   </div>
+</div>
+</body>
+</html>
+
+
+
+
+

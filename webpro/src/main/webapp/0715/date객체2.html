@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+today = new Date();
+
+function proc1(){
+	
+	//오늘의 날짜로 getTime()실행 하기
+	todaytime = today.getTime(); //millisec의 값을 리턴 
+	console.log(todaytime);
+	
+	//100일의 millisec값 구하기
+	time100  = 100*24*60*60*1000;
+	console.log(time100);
+	
+	//두개의 mullisec감ㅅ을 더한다
+	times = todaytime + time100;
+	
+	//새로운 Date객체를 생성
+	days100 = new Date(times);
+	
+	document.getElementById('result1').innerHTML = days100.toLocaleString();
+	
+}
+
+function proc2(){
+	//id="pdate"인 요소를 검색하여 값을 가져온다 
+	selvalue = document.getElementById('pdate').value;
+	
+	
+	//selvalue 의 값으로 Date객체 생성 
+	selday =new Date(selvalue) ;
+		
+	//오늘의 millisec  - 	selday의 millisec 
+	time = today.getTime() - selday.getTime();
+		
+		
+	//time의 millisec값을 가지고 지난 일 수를 구한다 
+	day = time /1000 /60 /60 /24 ;
+	
+	//비교 
+	if(day > 7) res = "교환불가";
+	else res = "교환가능";
+	
+	str = `오늘 : ${today.toLocaleString()} <br>`;
+	str += `구입날짜 : ${selday.toLocaleDateString()} <br>`;
+	str += res ;
+	
+	document.getElementById('result2').innerHTML = str;
+
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+    <h3>경과시간 구하기 - getTime()<br>
+    오늘로부터 100일 후의 날짜구하기 <br>
+    오늘의 날짜로 getTime()실행 하기 - millisec의 값  <br>
+    100일의 millisec값 구하기 - 1000*60*60*24*100<br>
+    두개의 mullisec감ㅅ을 더한다 - 새로운 Date객체를 생성한다 <br>
+    </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>경과시간 구하기 - getTime()<br>
+    선택한 날로부터 오늘까지 7일이 지났으면 교환불가 안 지났으면 교환가능 <br>
+    </h3>
+    
+    <br>
+    <input type="date" id="pdate">
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

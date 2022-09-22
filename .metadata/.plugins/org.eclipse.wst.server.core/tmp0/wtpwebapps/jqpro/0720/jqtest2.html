@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	
+	result1 = document.getElementById('result1');
+	//result1.css('background', 'blue');  //에러 발생 
+	
+	
+	//result1변수는 dom객체 변수이다 
+	//css()는 jquery메소드 이다 
+	//dom객체 변수는 jquery메소드를 사용불가 
+	//dom객체변수를 jquery변수로 변환시키면 사용가능 
+	$(result1).css('background', 'blue');
+
+	
+	//h1검색 
+	h1tag = $('h1');
+	h1tag.css('color', 'red');
+	
+	h1tag.eq(3).css('color', 'blue');
+	
+	
+	// jquery변수[인덱스]는 dom변스로 변환된다
+	//h1tag[1].css('color', 'green'); //오류 발생
+	h1tag[1].style.color = 'green';
+})
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3></h3>
+  
+    <div id="result2">
+    
+        <h1>별빛같은 나의 사랑아</h1>
+        <h1>별빛같은 나의 사랑아</h1>
+        <h1>별빛같은 나의 사랑아</h1>
+        <h1>별빛같은 나의 사랑아</h1>
+        <h1>별빛같은 나의 사랑아</h1>
+        
+    
+    </div>
+ </div>
+ 
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+

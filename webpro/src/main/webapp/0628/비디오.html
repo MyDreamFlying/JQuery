@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+
+<style>
+ img{
+    width : 100px;
+    height : 100px;
+ }
+ iframe{
+    display : none;
+ }
+</style>
+
+<script>
+
+function playShow(){
+	//iframe을 실행 - html요소 를 검색 
+	var  a =   document.getElementById('ifr');
+	a.style.display = 'block';
+    a.requestFullscreen();
+    
+    
+}
+</script>
+
+</head>
+<body>
+<pre>
+스크립트에서 html요소를 검색하기 
+id를 이용    document.getElementById('ifr')
+tag이름을 이용 : 
+class 이름을 이용  : 
+
+</pre>
+   <!--  <video width="640" height="480" controls autoplay>
+        <source src="../muiti/trailer.mp4" type='video/mp4'>
+        <source src="../multi/trailer.ogv"  type='video/ogg'>
+    </video> -->
+    
+    
+    <img src="../images/임영웅2.png" alt="임영웅2.png" onclick="playShow()">
+    
+    <br><br>
+    
+    <iframe id="ifr" width="560" height="315" 
+            src="https://www.youtube.com/embed/iVOC15l-GIc?autoplay=1&mute=1" 
+         title="YouTube video player" ></iframe>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

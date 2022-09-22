@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<style>
+#box1 {
+  font-size : 1.5em;
+}
+</style>
+<script>
+ today1 = new Date();
+ 
+window.onload = function(){
+	
+	window.setInterval(function(){ 
+		
+		//1초마다 한번씩 초 가 갱신되도록 한다 
+		now = new Date();
+		a = now.toLocaleString();
+		
+		document.getElementById('box1').innerHTML = a;
+		
+		
+	}, 1000);
+	
+	
+} 
+ 
+
+  function proc1(){
+	
+	  today2 = new Date(400000);
+	  today3 = new Date(1999, 5-1, 3);
+	  today4 = new Date("1999.5.3");
+	  
+	  
+	  today1 = today1.toLocaleString() ;
+	  today2 = today2.toLocaleString() ;
+	  today3 = today3.toLocaleString() ;
+	  today4 = today4.toLocaleString() ;
+	  
+	  
+	  str = `${today1} <br>`;
+	  str += `${today2} <br>`;
+	  str += `${today3} <br>`;
+	  str += `${today4} <br>`;
+	  
+	  
+	  document.getElementById('result1').innerHTML = str;
+	  
+  }
+  
+  function proc2(){
+	  
+	  days = ["일요일", "월요일","화요일","수요일","목요일","금요일","토요일"];
+	  
+	  
+	 a=   today1.getDay();
+	 
+	 
+	  str = `${today1.toLocaleString()} <br>`;
+	  str += `${days[a]} 입니다 <br>`;
+	  
+	/*  //비교 
+	 switch(a){
+	 case 0:
+		 res = "일요일"
+		 break;
+	 case 1:
+		 res = "월요일"
+		 break;
+	 case 2:
+		 res = "화요일"
+		 break;
+	 case 3:
+		 res = "수요일"
+		 break;
+	 case 4:
+		 res = "목요일"
+		 break;
+	 case 5:
+		 res = "금요일"
+		 break;
+	 case 6:
+		 res = "토요일"
+		 break;
+	 }
+	  
+	 str =` ${today1} <br>`;
+	 str += `${res} 입니다<br>`;
+	 */
+	 
+	 document.getElementById('result2').innerHTML = str;
+	 
+  }
+  
+  function proc3(){
+	  
+	  myday = new Date(2000, 5-1, 12);
+	  
+	  gtime =   today1.getTime() - myday.getTime();
+	  
+	 // alert(gtime);
+	 res =   gtime / 1000 / 60 /60 / 24/ 365;
+	 
+	 str = `오늘 :${today1.toLocaleString()} <br>`;
+	 str += `내생일 : ${myday.toLocaleString()} <br>`;
+	 str += `${res} 년이 지났습니다 `
+	  
+	document.getElementById('result3').innerHTML = str;
+	  
+  }
+</script>
+
+</head>
+<body>
+
+<div class="box" id="box1">
+
+</div>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>요일구하기 getDay() - 0~6까지 리턴 <br>
+    switch()- 비교 <br>
+    배열을 이용
+    </h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>경과시간 구하기 <br>
+    getTime() - millisec값을 리턴  <br>
+    millisec 값으로 실제 초를 구하기 위해서 1000으로 나눈다
+    </h3>
+    <input type="button" value="확인" onclick="proc3()">
+    <div id="result3"></div>
+ </div>
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

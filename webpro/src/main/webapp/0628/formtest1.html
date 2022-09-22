@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form{
+    border : 2px solid blue;
+    width : 50%;
+    padding : 20px;
+    margin : 10px auto;
+}
+</style>
+</head>
+<body>
+<pre>
+입력한 내용을 서버로 보내기 -  get방식으로 
+formtest.jsp?id=aaasd&pass=1234
+</pre>
+<form action="formtest.jsp"  method="get">
+   <input type="text" name="id"  placeholder="아이디"><br>
+   <input type="password" name="pass"  placeholder="비밀번호"><br>
+   <input type="submit" value="로그인" ><br>
+</form>
+
+<pre>
+입력한 내용을 서버로 보내기 -  post방식으로 
+formtest.jsp
+</pre>
+
+
+<form action="formtest.jsp"  method="post">
+   <input type="text" name="id"  placeholder="아이디"><br>
+   <input type="password" name="pass"  placeholder="비밀번호"><br>
+   <input type="submit" value="로그인" ><br>
+</form>
+
+
+</body>
+</html>
+
+
+
+

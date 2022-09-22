@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+	<script>
+		$('#lprod').on('change', function(){
+			// 선택한 option의 value값을 가져온다.
+			guvalue = $(this).val();
+			
+			$.ajax({
+				url : '/jqpro/ProdList.do',
+				
+				type : 'get',
+				// ↑ 요청값
+				// ↓ 반환값
+						// 데이터 불러오는 값은 ["key" : value], 형식으로 작성
+				data : {"gu" : guvalue },
+				
+				success : function(res){
+					
+				},
+				
+				error : function(xhr){
+					alert("상태 : " + xhr.status);
+				},
+				
+				dateType : 'json'
+			})
+		})
+		
+		$(function(){
+			$('#btn1').on('click', function(){
+					
+				$.ajax({
+					url: '/jqpro/LprodList.do',
+					type : 'get',
+					/*data  : */ 
+					success : function(res){
+						
+						str = "";
+						
+						/*$.each(res, function(i, v){
+							str = '<option value="' +  res[i].gu    + '">' +   res[i].nm   + '</option>';
+							$('#lprod').append(str);
+						})*/
+						//-------------------------------------//
+						
+						/*
+						$.each(res, function(i, v){
+							str += '<option value="' +  res[i].gu    + '">' +   res[i].nm   + '</option>';
+						})
+						$('#lprod').html(str);
+						*/
+						//---------------------------------------//
+						
+						$.each(res, function(i, v){
+							  str = $('<option></option>' ,{
+								      'value' : v.gu ,
+								      'text'   : v.nm
+							  })
+							  $('#lprod').append(str);
+						})
+					},
+					
+					error : function(xhr){
+					},
+					
+					dataType : 'json'
+				})
+			})
+			
+			
+			
+		})
+	</script>
+
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" id="btn1" value="확인" >
+    <br><br>
+    <select id="lprod"></select>
+    <select id="prod"></select>
+    
+    <div id="result1"></div>
+ </div>
+ 
+</body>
+</html>
+
+
+
+
+
+

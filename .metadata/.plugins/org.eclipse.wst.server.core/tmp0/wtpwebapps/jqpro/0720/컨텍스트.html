@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script  src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+
+$(function(){ 
+	 
+	//모든 p태그를 선택 
+	$('p').css('background', 'lightgreen');
+	
+	
+	//div를 클릭했을때 후손 p태그를 선택 
+	$('.box div').on('click', function(){
+		$('p', this).css('background', 'yellow');
+		$('p', this).css('font-size', '+=5px');
+		
+	})
+	
+	$('p', document.forms[0]).css('color', 'red')
+	
+})
+ 
+</script>
+
+<style>
+  form{
+     border : 5px solid pink;
+  }
+</style>
+</head>
+<body>
+
+<div class="box" >
+    <h3></h3>
+    <input type="button" value="확인" onclick="proc1()">
+    
+    <div id="result1" >
+       <p>무궁화 꽃이 피었습니다</p>
+    </div>
+    
+    <p>사랑은 늘 도망가 </p>
+    
+    <div id="result2">
+       <p>우리들의 블루스</p>
+    </div>
+    
+    <form>
+       <p>이제 나만 믿어요</p>
+    </form>
+    
+    <form>
+       <p>별빛같은 나의 사랑아</p>
+    </form>
+ </div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="prod">
+
+  <!--  list가져오기  -->
+  <select id="selectAll"  resultClass="kr.or.ddit.prod.vo.ProdVO">
+     select * from prod
+  </select>
+
+ <!-- Lprod리스트  전체 가져오기-->
+ <select id="selectLprod" resultClass="lprod">
+    select * from lprod
+ </select>
+ 
+ <!--lprod_gu값을 조건으로 prod  -->
+<select  id="selectByLgu"  resultClass="prod" 
+                parameterClass="string">
+
+     select prod_id, prod_name from prod  where prod_lgu = #data#
+</select>
+
+<!-- prod_id값을 조건으로 해서 해당 상품의 detail을 수행  -->
+<select id="selectById"  resultClass="prod"  parameterClass="String">
+    select * from prod where prod_id = #data#
+</select>
+
+
+
+
+</sqlMap>
+
+
+
+
+
+
+

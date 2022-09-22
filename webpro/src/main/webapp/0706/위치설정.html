@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ div{
+   width : 100px;
+   height : 100px;
+   margin : 10px;
+ }
+ .d1{
+    background : yellow;
+ }
+ .d2{
+    background : pink;
+ }
+ .d3{
+    background : lightblue;
+ }
+ .d4{
+    background : lightgreen;
+ }
+ #rd2{
+    position: relative;
+    top : 50px;
+    left : 80px;
+ }
+ #ad2{
+    position: absolute;
+    top : 200px;
+    left : 300px;
+ }
+ #fd3{
+    position: fixed;
+    top : 250px;
+    right : 100px;
+ }
+</style>
+</head>
+<body>
+
+ <h2>정적위치 : 정상적인 흐름으로 배치</h2>
+ <div class="d1"></div>
+ <div class="d2"></div>
+ <div class="d3"></div>
+ <div class="d4"></div>
+ 
+  <h2>상대위치 : 정상적인 위치를 기준으로 배치</h2>
+ <div class="d1"></div>
+ <div class="d2" id="rd2">
+    position: relative;<br>
+    top : 50px;<br>
+    left : 80px;<br>
+ </div>
+ <div class="d3"></div>
+ <div class="d4"></div>
+ 
+ 
+  <h2>절대위치 : 컨테이너의 원점을 기준으로  배치</h2>
+ <div class="d1"></div>
+ <div class="d2" id="ad2">
+     position: absolute;<br>
+    top : 200px;<br>
+    left : 300px;<br>
+ </div>
+ <div class="d3"></div>
+ <div class="d4"></div>
+ 
+ 
+ <h2>고정위치 : 컨테이너의 원점을 기준으로  배치</h2>
+ <div class="d1"></div>
+ <div class="d2"></div>
+ <div class="d3" id="fd3">
+    position: fixed;<br>
+    top : 250px;<br>
+    right : 100px;<br>
+ </div>
+ <div class="d4"></div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

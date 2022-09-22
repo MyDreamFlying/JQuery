@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"   href="../css/mystyle.css">
+
+<script>
+function proc3(){
+	   
+	    nums = "";
+	
+	    a = 10;
+	   for( i= 0 ; i<=10; i++){
+		   nums += i  + "&nbsp;&nbsp;";
+	   }
+	   
+	   a += 100;
+	   
+	    str = "";
+	   
+	   str +=  "a = " + a  + "<br>";
+	   str += "nums = " + nums + "<br>";
+       str += "i = " + i + "<br>";
+	   
+	   //html요소 div를 검색 
+	   out = document.getElementsByTagName('div')
+	  
+	   //str를 출력
+	   out[0].innerHTML = str;
+	   
+	   //proc4()함수를 호출
+	   proc4();
+	   
+	   
+}
+
+function proc4(){
+	out[0].style.backgroundColor = 'pink';
+	
+}
+
+</script>
+
+
+<style>
+div{
+  width : 400px;
+  height : 300px;
+  border : 2px dotted red;
+  margin : 20px;
+  padding : 20px;
+}
+</style>
+
+</head>
+<body>
+<pre>
+ 변수 선언 
+ 
+ var : 함수영역 
+ 선언된 함수내애서 사용 가능 
+ 함수가 종료 될때까지 사용 가능 
+ 
+ 
+ let : 블럭영역 
+ 선언된 블럭이 종료되면 변수의 사용도 종료된다 
+ <code>
+ for(let i= 0 ; i<=10; i++){
+	 nums += i  + "&nbsp;&nbsp;";
+ }
+  let i변수는 for문 안에서만 사용 가능하다
+ </code>
+ 
+ const : 변하지 않는 값을 지정
+ const pi = 3.141592;
+ pi의 값은 처리도중 값을 변경할 수 없다 
+
+
+지역변수  :변수가  선언된 함수내에서만  사용 가능 
+var out ;
+
+전역변수  : 변수가 선언된 함수 뿐만 아니라 다른 함수에서도  사용가능 
+out 
+
+</pre>
+<br><br>
+
+   <button onclick="proc3()">확인 </button>
+   
+   <br><br>
+   <div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

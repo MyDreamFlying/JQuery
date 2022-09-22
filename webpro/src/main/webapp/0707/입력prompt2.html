@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"  href="../css/mystyle.css">
+
+<script>
+function proc1(){
+	//입력 
+	x = parseInt(prompt("정수1 입력"));
+	y = parseInt(prompt("정수2 입력"));
+	
+	
+	//계산 
+	res = x + y;
+	
+	
+	//출력 
+	/* str = "정수1 : " + x + "<br>";
+	str += "정수2 : " + y + "<br>";
+	str +=  x + " + " +  y + " = " + res  + "<br>"; */
+	
+	str = `정수1 : ${x} <br>`;
+	str += `정수2 : ${y} <br>`;
+	str += `${x} + ${y} = ${res} <br>`;
+	
+	 out =  document.querySelector('div');
+	
+	 out.innerHTML = str;
+	
+}
+</script>
+
+<style>
+div{
+  width : 200px;
+  height : 50px;
+  margin : 10px;
+  padding : 10px;
+  border : 1px solid blue;
+}
+</style>
+
+</head>
+<body>
+ <pre>
+ 백틱(``) 을 이용한 템플릿 리터럴 
+ 문자와 변수를 한 문장으로 기술 
+ `문자 ${변수} 문자 ${변수} 문자  ${변수} `
+ 
+ 
+ </pre>
+
+  <input type="button" value="확인" onclick="proc1()">
+  
+  <br><br>
+  
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  
+  
+  
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이미지 보이기</title>
+</head>
+<body>
+  
+   <img src="커피1.jpg" alt="커피1.jpg">
+  
+</body>
+</html>

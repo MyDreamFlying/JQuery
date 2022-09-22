@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+
+<script>
+function proc1(){
+	
+	 list = document.getElementsByTagName('ul')[0];
+	 
+	allItems = list.getElementsByTagName('li');
+	
+	str = "";
+	
+	for(i=0; i<allItems.length; i++){
+		//alert( allItems[i].firstChild.data);
+		str +=   allItems[i].firstChild.data + "<br>";
+	}
+	document.getElementById('result1').innerHTML = str;
+}
+
+
+function proc2(){
+	u2list =  document.getElementById('u2');
+	lilist = u2list.getElementsByTagName('li');
+	
+	for(i=0; i<lilist.length; i++){
+		
+		str = lilist[i].firstChild.data;
+		
+		imgtag  =  document.createElement('img');
+		imgtag.src= "../images/" +str ;
+		imgtag.alt = str;
+		
+		lilist[i].appendChild(imgtag);
+	}
+	
+}  
+
+//이벤트 일괄등록 
+window.onload = function(){
+	
+	iu3list =   document.querySelectorAll('.iu3');
+	
+	for(i=0; i<iu3list.length; i++){
+		
+		iu3list[i].addEventListener('click', imgProc)
+	}
+	  
+}
+
+function  imgProc(){
+	//this가 함수내에  내장되어 있다 
+	//alert(this.firstChild.data);
+	
+	 str= this.firstChild.data
+	 
+	 imgtag = document.createElement('img');
+	 imgtag.src= "../images/" + str ;
+	 imgtag.alt = str;
+	 
+	 this.appendChild(imgtag);
+	 
+		 
+}
+</script>
+ <style>
+img{
+  width : 100px;
+  height : 100px;
+  margin : 2px;
+  border-radius:  70%;
+}
+</style> 
+</head>
+<body>
+
+<div class="box box1">
+    <h3></h3>
+    <ul>
+       <li>List Item1</li>
+       <li>List Item2</li>
+       <li>List Item3</li>
+       <li>List Item4</li>
+       <li>List Item5</li>
+    </ul>
+    
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ 
+ <div class="box box2">
+    <h3></h3>
+    <ul id="u2" >
+       <li>무지게1.png</li>
+       <li>무지게2.png</li>
+       <li>무지게3.png</li>
+       <li>임영웅4.jpg</li>
+       <li>임영웅5.jpg</li>
+    </ul>
+    <input type="button" value="확인" onclick="proc2()">
+   
+ </div>
+ 
+ <div class="box box3">
+    <h3></h3>
+    <!-- <ul id="u3" >
+       <li onclick="proc3(this)">무지게1.png</li>
+       <li onclick="proc3(this)">무지게2.png</li>
+       <li onclick="proc3(this)">무지게3.png</li>
+       <li onclick="proc3(this)">임영웅4.jpg</li>
+       <li onclick="proc3(this)">임영웅5.jpg</li>
+    </ul> -->
+    
+    <ul id="u3" >
+       <li class="iu3">무지게1.png</li>
+       <li class="iu3">무지게2.png</li>
+       <li class="iu3">무지게3.png</li>
+       <li class="iu3">임영웅4.jpg</li>
+       <li class="iu3">임영웅5.jpg</li>
+    </ul> 
+    
+   
+ </div>
+</body>
+</html>
+
+
+
+

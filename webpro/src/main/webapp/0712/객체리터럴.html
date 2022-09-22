@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+
+<script>
+ var rect= {
+		//속성 키:value,
+		garo : 4,
+		sero : 8,
+		
+		/* //메소드
+		getArea : function(){
+			return  this.garo * this.sero;
+		},
+		getCircum : function() { 
+			return  (this.garo + this.sero) * 2;
+		} */
+		
+		getArea() { 
+			return  this.garo * this.sero;
+		},
+		getCircum() { 
+			return  (this.garo + this.sero) * 2;
+		}
+ }
+ 
+ function proc1(){
+	 print('result1');
+ }
+ 
+ function print(out){
+	 str = `가로 : ${rect.garo} <br>`;
+	 str += `세로 : ${rect.sero} <br>`;
+	 
+	 //area =  rect.getArea();
+	 //str += `면적 : ${area} <br>`;
+	 
+	 str += `면적 : ${rect.getArea()} <br>` ;
+	 str += `둘레 : ${rect.getCircum()} <br>`;
+	 
+	 //출력 
+	 document.getElementById(out).innerHTML = str;
+ }
+ function proc2(){
+	 //입력 
+	 rect.garo = parseInt(prompt("가로를 입력"));
+	 rect.sero = parseInt(prompt("세로를 입력"));
+	 
+	 print('result2');
+	 
+ }
+ 
+ function proc3(){
+	 //빈객체 선언 
+	 let drect = {};
+	 
+	 //속성 추가 
+	 drect.width = 12;
+	 drect.height  = 9;
+	 
+	 
+	 //메소드 추가 
+	 drect.getArea = function(){
+		return  this.width * this.height ; 
+	 }
+	 drect.getCircum = function(){
+		return  (this.width + this.height ) * 2;
+	 }
+	 
+	 dprint(drect);
+ }
+ 
+ function dprint(dr){
+	 
+	 str = `가로 : ${dr.width} <br>`;
+	 str += `세로 : ${dr.height} <br>`;
+	 
+	 //area =  dr.getArea();
+	 //str += `면적 : ${area} <br>`;
+	 
+	 str += `면적 : ${dr.getArea()} <br>` ;
+	 str += `둘레 : ${dr.getCircum()} <br>`;
+	 
+	 //출력 
+	
+	 document.getElementById('result3').innerHTML = str;
+ }
+ 
+</script>
+</head>
+<body>
+
+<div class="box">
+    Rect객체 - garo, sero / getArea(), getCircum()
+    <h3>버튼을 클릭하면 proc1()함수를 호출하여  객체 정보를 츨력<br>
+    실체 객체정보를 출력하는 메소드는 print(out) 이다  </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+   
+    <h3>버튼을 클릭하면 proc2()호출 한다 <br>
+     가로 세로 값을 입력 하여 객체 정보를 츨력 <br>
+     실체 객체정보를 출력하는 메소드는 print(out) 이다
+     </h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+ 
+ <div class="box">
+      <h3>객체 선언시 빈 객체로 선언 <br>
+      객체의 속성과 메소드를 동적으로 추가 <br>
+      버튼을 클릭하면 proc3()호출 한다 <br>
+      실체 객체정보를 출력하는 메소드는 print(out) 이다
+     </h3>
+    <input type="button" value="확인" onclick="proc3()">
+    <div id="result3"></div>
+ </div>
+ 
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+arr = ["사과" ,"바나나", 100, "복숭아", 123.567,  "파인애플", 200,
+	               "사과", "참외","수박","사과"];
+
+//arr= new Array("사과" ,"바나나", "복숭아", "파인애플", "사과", "참외","수박","사과")
+
+function proc1(){
+	//입력 
+	input = prompt("입력하세요") ; 
+	
+	//입력한 값 찾기 
+	a = arr.indexOf(input);
+	
+	str = "";
+	
+	//있는지 없는지 판별 
+	if(a >= 0){
+		str = "찾는 과일 : " + input   + "는(은) " +  a + " 번째 있어요 <br>";
+		
+	}else {
+		str =  "찾는 과일 : " + input   + "는(은) 없는 요소입니다 <br>";
+	}
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+
+function proc3(){
+	//입력 
+	input = prompt("입력하세요") ; 
+	
+	//입력한 값 찾기 
+	a = arr.lastIndexOf(input);
+	
+	str = "";
+	
+	//있는지 없는지 판별 
+	if(a >= 0){
+		str = "찾는 과일 : " + input   + "는(은) " +  a + " 번째 있어요 <br>";
+		
+	}else {
+		str =  "찾는 과일 : " + input   + "는(은) 없는 요소입니다 <br>";
+	}
+	
+	document.getElementById('result3').innerHTML = str;
+}
+
+
+function proc2(){
+	//입력 
+	input = prompt("입력하세요") ; 
+	
+	str= "";
+	start = 0;
+	
+	while(true){
+		
+		//위치 찾기 
+		a = arr.indexOf(input, start)
+		
+		//위치 값이 -1이면 종료 -break
+		if(a == -1) break;
+		
+		//출력을 위해서 a값을 str변수에 누적 
+		str += a + "번째 ";
+		
+		//다음 위치 지정하기
+		start = a+1;
+	}
+	
+	//result2에 출력 
+	res = "찾는 과일 : " + input   + "는(은) " +  str + "  있어요 <br>";
+	
+	//document.getElementById('result2').innerHTML = res;
+	
+	document.getElementsByClassName('result2')[0].innerHTML =res
+}
+
+arr2 = new Array();
+function proc4(){
+	
+	/* for(i=0 ; i<5; i++){
+		//입력  - 자료형 상관없이 , 중복 상관없이  무조건 5개 저장
+		a = prompt( (i+1 ) + "번째 입력 하세요");
+		
+		//배열에 저장 
+		arr2.push(a);
+     }
+	 */
+	 
+	 //중복을 제거해서 배열에 저장 
+	 let i = 0;
+	 while(true){
+		//입력 
+		 a = prompt( (i+1 ) + "번째 입력 하세요");
+		
+		//중복비교 
+		 idx = arr2.indexOf(a);
+		 if(idx == -1){ //없는요소 - 배열에 저장 
+			 arr2.push(a);
+		     i++;
+		 }
+		 if(i >=5 ) break;
+	 }
+	 
+	 document.getElementById('result4').innerText = arr2;
+
+}
+
+function proc5(){
+	
+	
+	  str = `원래배열 : ${arr} <br>`;
+	  
+	  a =  arr.pop();
+	  
+	  str += `pop후 배열 : ${arr}<br>`;
+	  str += `꺼낸 요소 : ${a} <br>`;
+	  
+	  document.getElementById('result5').innerHTML = str;
+}
+
+function proc6(){
+	
+	narr =   arr.slice(2,7);
+	
+	str = `원래배열 : ${arr} <br>`;
+	str += `arr.slice(2,7) 후 : ${arr} <br> `;
+	str += `${narr} <br><br> `;
+	
+	document.getElementById('result6').innerHTML = str;
+	
+	
+	//사과와 사과사이의 데이타 
+	idx = 0;
+	str = "";
+	while(true){
+		 //사과 위치 찾기 
+		start =  arr.indexOf("사과", idx); //start= 0, 
+		end  = arr.indexOf("사과", start+1); // end = 7 
+		console.log(start, end);
+		
+		if(end < 0) break;
+		
+		aa = arr.slice(start+1, end);
+		str += aa + "<br>";
+		//alert(aa);
+		
+		idx = end;
+		console.log("idx= " + idx);
+	}
+	
+	document.getElementById('result6').innerHTML += str
+}
+
+function proc7(){
+	
+	str = `원래배열 : ${arr} <br>`;
+	
+	/* //4번째 위치에서 1개를 삭제하고 키위, 자두를 삽입한다
+	arr.splice(4, 1, "키위", "자두");
+	
+	str += `splice(4, 1, "키위", "자두") 후 : ${arr} <br>`;
+	 */
+	 
+	// /////////////////////////////////////////
+	/*  //7번째 위치에서 2개를 삭제한다
+	arr.splice(7,2)
+	 
+	str += `splice(7,2) 후 : ${arr} <br>`;
+	 */
+	 
+	//4번째 위치에서 0개를 지우고 노랑, 빨강 
+	arr.splice(4, 0, "노랑","발강");
+	str += `splice(4, 0, "노랑","발강") 후 : ${arr} <br>`;
+	 
+	document.getElementById('result7').innerHTML = str
+}
+
+function proc8(){
+	arr =["사과", "복숭아", "바나나"];
+	
+	str = `배열 길이 : ${arr.length} <br>`;
+	
+	//배열을 분자열로 변환 aa는 문자열 변수 
+	aa = arr.join();
+	
+	str +=`arr.join() 후 : ${aa.length} <br>`;
+
+	str +=`arr[2] : ${arr[2]} <br>`;
+	str +=`aa[2]  : ${aa[2]} <br>`;
+	document.getElementById('result8').innerHTML = str;
+}
+</script>
+
+<style>
+#but{
+  width : 120px;
+}
+</style>
+</head>
+<body>
+
+ <div class="box">
+    <h3>배열 요소 위치 찾기</h3>
+    arr = ["사과" ,"바나나", 100, "복숭아", 123.567,  "파인애플", 200,  "사과", "참외","수박","사과"];<br>
+    indexOf<br>
+    lastIndexOf<br>
+    없으면 -1를 리턴한다<br> 
+    <input type="button" value="indexOf" onclick="proc1()">
+    <input type="button" id="but" value="indexOf_여러개" onclick="proc2()">
+    <input type="button" value="lastIndexOf" onclick="proc3()">
+    <div id="result1"></div>
+    
+    <div class="result2"></div>
+    <div id="result3"></div>
+ </div>
+ 
+ 
+ 
+ <div class="box">
+    <h3>배열 에 저장 / 꺼내기</h3>
+    arr = new Array()<br>
+    push(a,b,c) <br>
+    pop()<br>
+    중복을 제거한 후 배열에 저장한다<br> 
+    <input type="button" value="push" onclick="proc4()">
+    <input type="button" value="pop" onclick="proc5()">
+    
+    <div id="result4"></div>
+    <div id="result5"></div>
+    
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>배열요소 자르기/ 수정</h3>
+    slice(start, end) : <br>
+    사과와 사과사이의 데이타 추출<br>
+    splice(index, n개, a,b,c요소) <br>
+   
+    <input type="button" value="slice" onclick="proc6()">
+    <input type="button" value="splice" onclick="proc7()">
+    
+    <div id="result6"></div>
+    <div id="result7"></div>
+ 
+ </div>
+ 
+ 
+  
+ <div class="box">
+    <h3>배열을 문자로 </h3>
+    arr =["사과", "복숭아", "바나나"]
+    join() <br>
+   
+   <input type="button" value="join" onclick="proc8()">
+   
+    <div id="result8"></div>
+ 
+ </div>
+ 
+ 
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

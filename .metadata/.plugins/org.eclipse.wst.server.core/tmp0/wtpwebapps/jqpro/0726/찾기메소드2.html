@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script>
+$(function(){
+	$('#parent').on('click', function(){
+		  $('span').parent().css({ 'color': 'red', 'border': '1px solid red'})
+	})
+	
+	$('#parents').on('click', function(){
+		
+		$('span').parents().css({ 'color': 'blue', 'border': '1px solid blue'})
+	})
+	
+	$('#parentsu').on('click', function(){
+		$('span').parentsUntil('#result1').css({ 'color': 'hotpink', 'border': '5px solid hotpink'})
+	})
+	
+	$('#parentss').on('click', function(){
+		$('span').parents('#result1').css({ 'color': 'green', 'border': '5px solid green'})
+	})
+	
+	$('.btn').on('click', function(){
+		//$(this).parent('div').css({ 'color': 'lime', 'border': '5px solid lime'})
+	
+	     $(this).parent('div').find('span').css({ 'color': 'lime', 'border': '5px solid lime'})
+	})
+})
+</script>
+
+<style>
+.siblings * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="button" id="parent" value="parent" >
+    <input type="button" id="parents" value="parents" >
+    <input type="button" id="parentsu" value="parentsu" >
+    <input type="button" id="parentss" value="parents(s)" >
+    
+    
+    <div id="result1"  class="siblings">
+    
+         <div style="width:500px;">div (great-grandparent)
+            <button type="button" class="btn">확인</button>
+		    <ul>ul (grandparent)  
+		      <li>li (direct parent)
+		        <span>span</span>
+		      </li>
+		    </ul>   
+		 </div>
+		
+		 <div style="width:500px;">div (grandparent)  
+		    <button type="button" class="btn">확인</button>
+		    <p>p (direct parent)
+		      <span>span</span>
+		    </p> 
+		 </div>
+    
+    </div>
+ </div>
+ 
+</body>
+</html>

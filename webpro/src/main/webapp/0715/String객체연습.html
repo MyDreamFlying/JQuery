@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+proc1 = () => {
+	//입력 
+	code =prompt("입력") ;  //110326-4432618 
+	
+	yy = code.substring(0,2);  // slice(0,2) , substr((0,2)
+	mm = code.substring(2,4);  //slice(2,4), substr(2,2)
+	dd = code.substring(4,6); //slice(4,6) , substr(4,2)
+	
+	gg = code.charAt(7) ;  //4 라는문자 
+	
+	//비교 
+	//성별 
+	if(gg =="1"  || gg =="3") gender = "남자";
+	if(gg =="2" || gg == "4") gender = "여자" ;
+	
+	//1900, 2000 - "19" ,"20"
+	if(gg == "1" || gg  =="2")  year = "1900";
+	else if(gg == "3"  ||  gg == "4") year = "2000";
+	
+	year = parseInt(year) + parseInt(yy) ; //태어난 년도 
+	
+	now = new Date();
+	curyear = now.getFullYear();
+	
+	age  =   curyear- year; //나이 
+	
+	str = "주민번호 = " + code.substring(0, 8) + "****** <br>";
+	str += `생년월일 : ${year}년 ${mm} 월 ${dd} 일 <br>` ;
+	str += `성별 : ${gender} <br>`;
+	str += `나이 : ${age} <br>`;
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+function proc2(){
+	//입력 - 980213-1234567 
+	code =  prompt("주민번호입력");
+	
+	//-을 제거->    -을 ""변경  9802131234567 - 총13자리 인덱스 : 0 ~12
+	input = code.replace("-", "");
+	
+	console.log(code, input);
+	
+	//곱하느 수 
+	su="234567892345";
+	
+	sum = 0;
+	
+	for(i=0; i<su.length; i++){
+		sum +=  input.charAt(i) * su.charAt(i)
+		//sum += rinput.substr(i, 1) * su.substr(i, 1);
+	}
+	
+	res = 11- (sum % 11);
+	
+	//if(res == 10) res = 0;
+	//if(res == 11) res = 1;
+	 res =  res % 10;
+	 
+	 if(res == input.charAt(12)){
+		 aa = "진짜";
+	 }else {
+		 aa = "가짜";
+	 }
+	 
+	 str = `주민번호 : ${code.substr(0, 8)}****** <br>`;
+	 str +=  aa;
+	 
+	 document.getElementById('result2').innerHTML = str;
+	 
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+    <h3>
+    주민등록번호를 입력 받아 생년월일과 성별을 출력하는 프로그램을 작성하시오<br>
+    (입력은 prompt로 입력받는다.)<br>
+    예) 주민등록번호를 110326-4432618로 입력 받은 경우<br>
+	생일 : 2011년 3월 26일<br>
+	성별 : 여자   나이: <br>
+    </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>
+    주민등록번호를 입력 받아 주민등록번호의 유효성을 검사하는 프로그램을 <br>
+    (ABCDEF-GHIJKLM)
+    </h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+ 
+</body>
+</html>

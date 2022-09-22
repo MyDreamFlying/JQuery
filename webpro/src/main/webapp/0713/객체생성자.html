@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+function Rect(garo, sero){
+	this.garo = garo;
+	this.sero = sero;
+	
+	
+	this.getArea = function(){
+		return this.garo* this.sero;
+	}
+	this.getCircum = function(){
+		return (this.garo + this.sero) * 2;
+	}
+}
+//이름을 추가 
+
+
+function proc1(){
+	//객체 생성 
+	
+	 var p1 = new Rect(4,5);
+	//p1의 객체에  이름 속성을 추가 
+	 p1.name="네모";
+	
+	 print(p1, 'result1');
+}
+function print(p, out){
+	
+	//str = "가로 = " + p.garo + "<br>";
+	str = `가로 = ${p.garo} <br>`;
+	str += `세로 = ${p.sero} <br>`;
+	str += `이름 = ${p.name} <br>`;
+	str += `면적 = ${p.getArea()} <br>`;
+	str += `둘레 = ${p.getCircum()} <br>`;
+	
+	document.getElementById(out).innerHTML = str;
+}
+function proc2(){
+	//입력 
+	garo =  parseInt(prompt("가로 입력"));
+	sero =  parseInt(prompt("세로 입력"));;
+	
+	//Rect의 객체를 생성 
+	var rect = new Rect(garo,sero);
+	
+	//rect객체에 이름속성을 추가 
+	rect.name= "사각형";
+	
+	print(rect, "result2");
+	
+	
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+    <h3>버튼을 클릭하면 proc1()함수호출 
+    객체 정보를 출력</h3>
+    
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>버튼을 클릭하면 proc2()함수호출 가로, 세로 값을 입력하여<br>
+     Rect객체로 대입하고 객체 정보를 출력</h3>
+    
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=jqpro/src\/main\/java&lt;kr.or.ddit.prod.dao{IProdDao.java[IProdDao" modifiers="513" timestamp="1658916404272"/>
+    <typeInfo handle="=jqpro/src\/main\/java&lt;kr.or.ddit.buyer.dao{IBuyerDao.java[IBuyerDao" modifiers="513" timestamp="1659508090571"/>
+    <typeInfo handle="=jqpro/src\/main\/java&lt;kr.or.ddit.buyer.service{IBuyerService.java[IBuyerService" modifiers="513" timestamp="1659508058294"/>
+    <typeInfo handle="=boardpro/D:\/B_Util\/5.ApacheTomcat\/apache-tomcat-8.5.81\/lib\/ecj-4.6.3.jar=/owner.project.facets=/jst.web=/=/javadoc_location=/https:\/\/tomcat.apache.org\/tomcat-8.5-doc\/api\/=/&lt;org.eclipse.jdt.internal.compiler.env(IBinaryTypeAnnotation.class[IBinaryTypeAnnotation" modifiers="1537" timestamp="1654641016000"/>
+    <typeInfo handle="=boardpro/D:\/B_Util\/5.ApacheTomcat\/apache-tomcat-8.5.81\/lib\/ecj-4.6.3.jar=/owner.project.facets=/jst.web=/=/javadoc_location=/https:\/\/tomcat.apache.org\/tomcat-8.5-doc\/api\/=/&lt;org.eclipse.jdt.internal.compiler.env(IBinaryNestedType.class[IBinaryNestedType" modifiers="1537" timestamp="1654641016000"/>
+    <typeInfo handle="=boardpro/D:\/B_Util\/5.ApacheTomcat\/apache-tomcat-8.5.81\/lib\/ecj-4.6.3.jar=/owner.project.facets=/jst.web=/=/javadoc_location=/https:\/\/tomcat.apache.org\/tomcat-8.5-doc\/api\/=/&lt;org.eclipse.jdt.internal.compiler.env(IBinaryMethod.class[IBinaryMethod" modifiers="1537" timestamp="1654641016000"/>
+    <typeInfo handle="=boardpro/src\/main\/java&lt;kr.or.ddit.board.service{IBoardService.java[IBoardService" modifiers="513" timestamp="1660022514885"/>
+</typeInfoHistroy>

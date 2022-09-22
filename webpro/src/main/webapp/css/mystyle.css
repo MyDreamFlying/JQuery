@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+img{
+   width : 400px;
+   height : 400px;
+   margin : 50px;
+   border : 3px solid blue;
+}
+
+pre{
+	  font-size : 1.4em;
+	  border : 2px dotted gray;
+	  background : lightblue;
+	  margin : 10px;
+	  padding : 10px;
+}
+
+input[type=button],button[type=button]{
+  background : blue;
+  color : white;
+  width : 80px;
+  height : 30px;
+  margin : 10px;
+  border-radius: 20px;
+}
+div.box{
+    height : auto;
+    border : 2px dotted red;
+    margin : 5px;
+    padding : 5px;
+    background : lightgray;
+}
+
+div.box div{
+  background : #FFF0F5;
+  border-top : 1px solid gray;
+  border-bottom : 1px solid gray;
+  height : auto;
+  padding : 10px;
+}

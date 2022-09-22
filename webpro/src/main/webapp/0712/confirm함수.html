@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+function proc1(){
+	
+	str = "";
+	
+	while(true){
+		//수 입력 -
+		su = prompt("몇단을 외울까요???");
+		
+		str += `<br>**** ${su}단 ***<br>`;
+		
+		//구구단 만들기 
+		for(i=1; i<10; i++){
+			str += `${su} * ${i} = ${su*i} <br>`;
+		}
+		
+		//출력 
+		document.getElementById('result1').innerHTML = str;
+		
+		//계속- yes/ no 
+		cont = confirm("계속할래??");
+		if(!cont)  break;
+		
+	}
+
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+    <h3>버튼을 클릭하면 proc1()함수를 호출 <br>
+     수를 입력해서 구구단을 출력한다<br>
+     구구단 출력후 계속여부를 입력하여 진행한다  </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+arr =["사랑은 늘 도망가", "별빛같은 나의 사랑아", "우리들의 블루스",
+	"사랑해 진짜", "이제 나만 믿어요", "다시 만날수 있을까", "손이 참 곱던 그대"];
+	//arr[0], arr[1], arr[6], arr[4], arr[2], arr[3]
+	
+function proc1(){
+	//랜덤 0~6
+	rnd = parseInt(Math.random() * arr.length);
+	str  = arr[rnd];
+	
+	setTimeout(function(){
+		document.getElementById('result1').innerText = str;
+	}, 1000);
+	
+}
+	
+window.onload = function(){
+	result2 =  document.getElementById('result2');	
+}
+
+function proc2(){
+	
+	setInterval(function(){ 
+		rnd = parseInt(Math.random() * arr.length);
+		str = arr[rnd];
+		
+		r = parseInt(Math.random() * 150);
+		g = parseInt(Math.random() * 150);
+		b = parseInt(Math.random() * 150);
+		
+		cr = r.toString(16);
+		cg = g.toString(16);
+		cb = b.toString(16);
+		
+		console.log(r,g,b, cr, cg, cb);
+		
+		fsize = parseInt(Math.random()*39+12);
+		
+		result2.innerText = str;
+		result2.style.color = '#' + cr + cg + cb;
+		result2.style.fontSize = fsize + "px";
+		
+	}, 1000)
+	
+	
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+    <h3>setTimeout<br>
+    주어진 시간경과후 에 한번 실행 하는 함수를 정의 <br>
+    랜덤으로 문자를 발생해서 출력 
+    </h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+    <h3>setInterval<br>
+    주어진 시간 간격으로 매번 실행 하는 함수를 정의<br>
+    랜덤으로 문자를 발생해서 출력
+    </h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+</body>
+</html>

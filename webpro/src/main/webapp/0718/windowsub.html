@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+function proc1(){
+	//입력한 값을 가져오기 
+	idvalue = document.querySelector('#id').value;
+	namevalue = document.querySelector('#name').value;
+	
+	
+	str = `아이디 : ${idvalue} <br>`
+	str +=`이름 : ${namevalue} <br>`;
+	
+	//부모창의 id=result1에 출력
+	opener.document.getElementById('result1').innerHTML = str;
+	
+	window.close();
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+    <input type="text" id="id" placeholder="아이디"><br>
+    <input type="text" id="name" placeholder="이름"><br>
+    <input type="button" value="확인" onclick="proc1()">
+    
+ </div>
+ 
+</body>
+</html>

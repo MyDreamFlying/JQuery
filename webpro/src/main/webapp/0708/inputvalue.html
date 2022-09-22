@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form {
+    border  : 1px solid blue;
+    margin : 20px;
+    padding  : 20px;
+}
+
+label{
+   display : inline-block;
+   width : 90px;
+   height : 30px;
+}
+</style>
+
+<script>
+function calc(){
+	
+	//html요소로 접근 
+	/* vx = document.getElementById('x');
+	vy = document.getElementById('y'); */
+	
+	var vx = document.querySelector('#x');
+	let vy = document.querySelector('#y');
+	
+	//값 가져오기 
+	let xvalue = vx.value;
+	let yvalue = vy.value;
+	
+	//계산 
+	let res  = parseInt(xvalue) +  parseInt(yvalue);
+	
+	//출력 
+	//id=sum요소 찾기 검색 
+	/* let vsum = document.getElementById('sum'); */
+	let vsum = document.querySelector('#sum');
+	
+	vsum.value = res;
+	
+}
+
+
+window.onload = function(){
+	//계산기2--------------------
+	  vx2 = document.querySelector('#x2');
+	  vy2 = document.querySelector('#y2');
+	  
+	  vsum2 =  document.getElementById('sum2');
+	  
+	  
+	  //계산기4----class=but
+	/*let  ebut =  document.getElementsByClassName('but'); */
+	 let  ebut = document.querySelectorAll('.but');
+	 for(i=0; i<ebut.length; i++){
+		 ebut[i].addEventListener('click', butClick);
+	 }
+
+}
+
+function butClick(){
+	
+	//입력한 값 가져오기 - x4, y4
+	let vx4 = parseInt(document.querySelector('#x4').value);
+	let vy4 = parseInt(document.querySelector('#y4').value);
+	
+	
+	//this를 사용 가능 - 클릭한 버튼  
+	// alert(this.value);
+	let res = 0;
+	if(this.value == "더하기"){
+		res =vx4 + vy4;
+	}else if(this.value == "빼기"){
+		res =vx4 - vy4;
+	}else if(this.value == "곱하기"){
+		res =vx4 * vy4;
+	}else if(this.value == "나누기"){
+		res =vx4 + vy4;
+	}
+	
+	//출력 - sum4
+	document.querySelector('#sum4').value = res;
+}
+
+
+function add(){
+	
+	res =   parseInt(vx2.value) + parseInt(vy2.value);
+	
+	vsum2.value = res;
+	
+}
+function sub(){
+	res = vx2.value - vy2.value;
+	vsum2.value = res;
+}
+function multi(){
+	res = vx2.value * vy2.value;
+	vsum2.value = res;
+}
+function divide(){
+	res = vx2.value / vy2.value ;
+	vsum2.value = res;
+}
+
+
+function proc(op){
+	//html요소 검색 
+	let vx3 = parseInt(document.querySelector('#x3').value);
+	let vy3 = parseInt(document.querySelector('#y3').value);
+	
+	
+	//op를 비교 - switch 
+	let res = 0;
+	switch(op){
+	case '+' :
+		res = vx3 + vy3;
+		break;
+	case '-' :
+		res = vx3 - vy3;
+		break;
+	case '*':
+		res = vx3 * vy3;
+		break;
+	case '/' :
+		res = vx3 / vy3;
+		break;
+	}
+	
+	document.querySelector('#sum3').value= res;
+	
+}
+</script>
+</head>
+<body>
+    <h3>덧셈 계산기1</h3>
+    <form name="myform" >
+        <label>첫번째 정수</label>       
+        <input id="x"><br>
+        
+        <label>두번째 정수</label>        
+        <input id="y"><br>
+        
+        <label>합계</label>        
+        <input id="sum"><br>
+        
+        <input type="button" value="계산" onclick="calc();">
+    </form>
+
+
+    <h3>덧셈 계산기2</h3>
+    <p>각 버튼의 각각 다른 메소드를 호출</p>
+    <form name="myform" >
+        <label>첫번째 정수</label>       
+        <input id="x2"><br>
+        
+        <label>두번째 정수</label>        
+        <input id="y2"><br>
+        
+        <label>합계</label>        
+        <input id="sum2"><br>
+        
+        <input type="button" value="더하기" onclick="add();">
+        <input type="button" value="빼기"  onclick="sub();">
+        <input type="button" value="곱하기" onclick="multi();">
+        <input type="button" value="나누기" onclick="divide();">
+    </form>
+    
+    <h3>덧셈 계산기3</h3>
+    <p>각 버튼의 같은 메소드를 호출</p>
+    <form name="myform" >
+        <label>첫번째 정수</label>       
+        <input id="x3"><br>
+        
+        <label>두번째 정수</label>        
+        <input id="y3"><br>
+        
+        <label>합계</label>        
+        <input id="sum3"><br>
+        
+        <input type="button" value="더하기" onclick="proc('+');">
+        <input type="button" value="빼기"  onclick="proc('-');">
+        <input type="button" value="곱하기" onclick="proc('*');">
+        <input type="button" value="나누기" onclick="proc('/');">
+    </form>
+    
+    
+    <h3>덧셈 계산기4</h3>
+    <p>각 버튼의 일괄 이벤트 처리- script에서 이벤트 등록  </p>
+    <form name="myform" >
+        <label>첫번째 정수</label>       
+        <input id="x4"><br>
+        
+        <label>두번째 정수</label>        
+        <input id="y4"><br>
+        
+        <label>합계</label>        
+        <input id="sum4"><br>
+        
+        <input type="button" value="더하기"  class="but">
+        <input type="button" value="빼기"   class="but">
+        <input type="button" value="곱하기"  class="but">
+        <input type="button" value="나누기"  class="but">
+    </form>
+    
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

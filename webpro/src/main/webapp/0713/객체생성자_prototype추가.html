@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<script>
+function Rect(garo, sero){
+	this.garo = garo;
+	this.sero = sero;
+	
+	this.getArea = function(){
+		return this.garo* this.sero;
+	}
+	this.getCircum = function(){
+		return (this.garo + this.sero) * 2;
+	}
+}
+
+//속성 추가 
+Rect.prototype.name = "사각형";
+
+//메소드 추가 
+Rect.prototype.getName = function(){
+	return this.name;
+}
+
+function proc1(){
+	
+	p1 = new Rect(23,12);
+	print(p1, "result1");
+}
+function proc2(){
+	
+	p2 = new Rect(4,8);
+	print(p2, "result2");
+}
+function print(p, out){
+	str = `가로 = ${p.garo} <br>`;
+	str += `세로 = ${p.sero} <br>`;
+	//str += `이름 = ${p.name} <br>`;
+	str += `이름 = ${p.getName()} <br>`;
+	str += `면적 = ${p.getArea()} <br>`;
+	str += `둘레 = ${p.getCircum()} <br>`;
+	
+	document.getElementById(out).innerHTML = str;
+}
+////---------------------/////
+//Person 빈객체를 선언 
+function Person(){ }
+
+//속성 추가 - name, tel
+Person.prototype.name = "홍길동";
+Person.prototype.tel = "000";
+
+//메소드 추가 - getName() . getTel()
+Person.prototype.getName = function(){
+	return this.name;
+}
+Person.prototype.getTel = function(){
+	return this.tel
+}
+Person.prototype.setName = function(name) {
+	this.name = name;
+}
+
+
+function proc3(){
+	str = ""
+	//Person객체를 생성
+	p1 = new Person();
+	personPrint(p1, "result3");
+	
+	p2 = new Person();
+	personPrint(p2, "result3");
+	//출력 
+}
+
+function personPrint(p, out){
+	
+	str += `이름 = ${p.getName()} <br>`;
+	str += `전화번호 = ${p.getTel()} <br>`;
+	
+	document.getElementById(out).innerHTML = str;
+}
+
+function proc4(){
+	str = ""
+	//Person객체를 생성
+	p3 = new Person();
+	p3.setName("개나리");
+	personPrint(p3, "result4");
+	
+	p4 = new Person();
+	p4.setName("진달래");
+	personPrint(p4, "result4");
+	//출력 
+}
+</script>
+
+</head>
+<body>
+
+<div class="box">
+    <h3>prototype을 이용한 속성과 메서드 추가<br>
+     모든 객체가 공유해서 사용할 수 있다
+    </h3>
+    
+    <input type="button" value="확인" onclick="proc1()">
+    <div id="result1"></div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>prototype을 이용한 속성과 메서드 추가<br>
+     모든 객체가 공유해서 사용할 수 있다
+    </h3>
+    
+    <input type="button" value="확인" onclick="proc2()">
+    <div id="result2"></div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>Person객 체를 빈객체로 생성 <br>
+      prototype을 이용한 속성(이름, 전화번호)과 
+      메서드 추가(이름, 전화번호를리턴 )<br>
+       모든 객체가 공유해서 사용할 수 있다
+    </h3>
+    
+    <input type="button" value="확인" onclick="proc3()">
+    <div id="result3"></div>
+ </div>
+ 
+ 
+ <div class="box">
+    <h3>Person객 체를 빈객체로 생성 <br>
+      prototype을 이용한 속성(이름, 전화번호)과 
+      메서드 추가(이름, 전화번호를리턴 )<br>
+       모든 객체가 공유해서 사용할 수 있다<br>
+       각 객체의 속성값을 바꾸는 메소는 가 필요 하다  - 추가 
+    </h3>
+    
+    <input type="button" value="확인" onclick="proc4()">
+    <div id="result4"></div>
+ </div>
+ 
+ 
+</body>
+</html>
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	//$('p').click(function(){ })
+	//$('p').bind('click', function() { })
+	
+	$('p').on('click', function(){
+		
+		  $(this).toggleClass('fcolor');
+	})
+	
+	$('p').on('mouseover', function(){
+		 $(this).addClass('bcolor');
+	})
+	
+	$('p').on('mouseout', function(){
+		$(this).removeClass('bcolor');
+		
+	})
+	
+	$('#btn1').on('click', function(){
+		 
+		$('p').each(function(){
+			
+			 if($(this).hasClass('fcolor')){
+				 $(this).addClass('fsize');
+			 }
+		})
+	}) 
+	
+})
+</script>
+
+<style>
+.fcolor{
+   color : red
+}
+
+.bcolor{
+   background : pink;
+}
+.fsize{
+    font-size : 2.0em;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h3></h3>
+   
+     <input type="button" value="확인" id="btn1">
+ 
+ 
+    <div id="result1">
+    
+      <p>무궁화 꽃이 피었습니다</p>
+      <p>능소화 꽃이 피었습니다</p>
+      <p>진달래 꽃이 피었습니다</p>
+      <p>개나리 꽃이 피었습니다</p>
+      <p>라일락 꽃이 피었습니다</p>
+    
+    </div>
+ </div>
+ 
+</body>
+</html>

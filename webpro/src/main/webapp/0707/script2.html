@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/outscript.js"></script>
+
+<link rel="stylesheet"  href="../css/mystyle.css">
+
+<style>
+ div{
+   width : 500px;
+   height : 200px;
+   border : 3px dotted red;
+   margin : 50px;
+   padding : 20px;
+ }
+</style>
+
+<script>
+    var now = new Date();
+    var  today = now.toLocaleString();
+    var  todate = now.toLocaleDateString();
+    var  totime = now.toLocaleTimeString();
+    
+    
+    window.onload = function(){
+    	 //출력 - id =d1인 div요소에 - html요소를 검색 접근 
+    	 var  hdiv = document.getElementById('d1');
+    	 
+    	 let str = "";
+    	 str += " 한국 표존시 : " + now + "<br>";
+    	 str += " 날짜와 시간 : " + today + "<br>";
+    	 str += " 날짜 : " + todate + "<br>";
+    	 str += " 시간  : " + totime + "<br>"
+    	 
+    	 
+    	 hdiv.innerHTML = str;
+    	 //hdiv.innerText  = str;
+    }
+ 
+   function proc(){
+	   alert("Hello. 다시 만날수 있을까");
+  } 
+    
+    
+   
+</script>
+</head>
+<body>
+  
+  <div id="d1">
+  </div>
+  
+  <br>
+  <br>
+  
+  <button type="button" onclick="alert('Hello~~')">확인</button>
+  <button type="button"  onclick="proc()">확인</button>
+  <button type="button"  onclick="proc2()">확인</button>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

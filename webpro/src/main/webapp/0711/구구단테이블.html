@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"  href="../css/mystyle.css">
+
+<style>
+table {
+  border : 1px solid blue;
+  border-spacing: 5px;
+}
+td{
+  width : 50px;
+  height : 50px;
+  text-align: center
+}
+</style>
+<script>
+//function proc1() { }
+//proc1 = function(){  }
+
+proc1 = () => {
+	res = "<table border='1'>";
+	
+	for(i=1; i<10; i++){
+		res  += "<tr>"
+		
+		for(k=1; k<10; k++){
+			//res  += "<td>"  + i*k   + "</td>";
+			res  += `<td> ${i*k} </td>`;
+		}
+		
+		res += "</tr>"
+	}
+
+	res += "</table>";
+	
+	//id=result1인요소를 검색 - 출력 
+	document.querySelector('#result1').innerHTML = res;
+	
+}//proc1함수 종료 
+
+</script>
+
+
+</head>
+<body>
+
+  <div class="box">
+	   <h3>구구단 출력 </h3>
+	   <input type="button" value="확인" onclick="proc1()">
+	   <div id="result1"></div>
+  </div>
+  
+</body>
+</html>
+
+
+
+
+
+
+

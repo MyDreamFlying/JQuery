@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<style type="text/css">
+.ziptr:hover{
+	background: pink;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	$('#but').on('click', function(){
+		dongvalue = $('#dong').val().trim();
+		console.log(dongvalue);
+		
+		if(dongvalue.length <1){
+			alert("입력하세요");
+			return false;
+		}
+		// 서버로 전송하기 <%= request.getContextPath()%>
+		$.ajax({
+			/* jqpro는 contextpath와 동일 */
+			url : "/jqpro/ZipSearch.do",
+			data: {"dong" : dongvalue},
+			type : 'post',
+			success : function(res){
+				str ="<table>"
+				str += "<tr><td>우편번호</td>";
+				str += "<td>주소</td><td>번지</td></tr>"
+				$.each(res, function(i, v){
+					
+					str += "<tr class = 'ziptr'><td>"+res[i].zipcode+"</td>";
+					str += "<td>"+v.addr+"</td><td>"+v.bunji+"</td></tr>"
+					
+				})
+				str+="</table>";
+				
+				$('#result').html(str);
+			},
+			error : function(xhr){
+				alert("상태: "+ xhr.status)
+			},
+			dataType : 'json'
+			
+		})
+	})
+	
+	// ziptr은 bind로하면안되고 delegate로해야한다.........
+	// bind 방식은 $('.ziptr').on('click', function(){})
+	
+	$(document).on('click','.ziptr', function(){
+		zip = $('td:eq(0)', this).text();
+		addr = $('td:eq(1)', this).text();
+		
+		// 부모의 input창의 넣는다,,
+		$('#zip', opener.document).val(zip);
+		$('#add1', opener.document).val(addr);
+		
+		window.close(); // 오픈한 창을 닫는다.
+		
+	})
+})
+
+</script>
+</head>
+<body>
+	<h3>찾는 동이름을 입력하세요</h3>
+	<input type= "text" name="dong" id="dong">
+	<button type = "button" id ="but">검색</button>
+	<br><br>
+	<div id = "result">
+	</div>
+</body>
+</html>

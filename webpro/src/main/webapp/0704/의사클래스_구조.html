@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+
+td{
+  width : 300px;
+  height : 40px;
+  text-align: center;
+}
+th{
+  height : 50px;
+}
+
+table {
+   border : 1px solid blue;
+   margin : 20px auto;
+}
+
+#tab1 th:nth-child(2n+1), #tab1 td:nth-child(2n+1){
+    background : pink;
+}
+#tab2  th{
+   background : black;
+   color : white;
+}
+#tab2 td:nth-child(2){
+   background : gray;
+}
+
+#tab3 tr:nth-child(2n){
+   background: yellow;
+
+}
+
+#tab3 tr:nth-child(1){
+
+     background : blue;
+     color : white;
+}
+</style>
+</head>
+<body>
+
+<table id="tab1" border="1">
+   <tr>
+     <th>이름</th>
+     <th>주소</th>
+     <th>전화번호</th>
+   </tr>
+   
+   
+   <tr>
+     <td>무지개</td>
+     <td>서울</td>
+     <td>010-1234-5678</td>
+   </tr>
+   
+   <tr>
+     <td>아지랑이</td>
+     <td>부산</td>
+     <td>010-3333-5566</td>
+   </tr>
+   
+   <tr>
+     <td>소나기</td>
+     <td>대전</td>
+     <td>010-7788-1234</td>
+   </tr>
+</table>
+
+<table  id="tab2" border="1">
+   <tr>
+     <th>이름</th>
+     <th>주소</th>
+     <th>전화번호</th>
+   </tr>
+   
+   
+   <tr>
+     <td>무지개</td>
+     <td>서울</td>
+     <td>010-1234-5678</td>
+   </tr>
+   
+   <tr>
+     <td>아지랑이</td>
+     <td>부산</td>
+     <td>010-3333-5566</td>
+   </tr>
+   
+   <tr>
+     <td>소나기</td>
+     <td>대전</td>
+     <td>010-7788-1234</td>
+   </tr>
+</table>
+
+<table  id="tab3" border="1">
+   <tr>
+     <th>이름</th>
+     <th>주소</th>
+     <th>전화번호</th>
+     <th>이메일</th>
+   </tr>
+   
+   
+   <tr>
+     <td>무지개</td>
+     <td>서울</td>
+     <td>010-1234-5678</td>
+     <td>kk123@ddit.or.kr</td>
+   </tr>
+   
+   <tr>
+     <td>아지랑이</td>
+     <td>부산</td>
+     <td>010-3333-5566</td>
+      <td>aa@ddit.or.kr</td>
+   </tr>
+   
+   <tr>
+     <td>소나기</td>
+     <td>대전</td>
+     <td>010-7788-1234</td>
+      <td>bb@ddit.or.kr</td>
+   </tr>
+</table>
+
+
+</body>
+</html>

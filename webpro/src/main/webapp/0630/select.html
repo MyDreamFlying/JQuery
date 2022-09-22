@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+label{
+  display : inline-block;
+  width : 130px;
+  height : 40px;
+}
+form{
+    width :  50%;
+   border : 1px solid blue;
+   margin : 20px auto;
+   padding : 30px;
+}
+select{
+  width : 300px;
+  font-size : 1.2em;
+}
+#food{
+  width : 300px;
+}
+</style>
+</head>
+<body>
+ <form action="select.jsp"   method="post">
+ 
+   <label>아이디</label>
+   <input type="text" name="id"> <br>
+   
+   <label>이름</label> 
+   <input type="text" name="name"> <br>
+   
+   <label>자기소개</label><br>
+   <textarea rows="10" cols="50" name="area"></textarea>
+   
+   <br><br>
+   
+   <label id="food">좋아하는 음식(여러개선택가능)</label><br>
+   <select name="food"  multiple="multiple"  size= "6">
+      <option>떡뽁기</option>
+      <option>갈비</option>
+      <option>치맥</option>
+      <option selected>도가니탕</option>
+      <option>냉면</option>
+      <option>칼국수</option>
+   </select>
+   
+   <br><br>
+   <button>전송</button>
+   
+ 
+ </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

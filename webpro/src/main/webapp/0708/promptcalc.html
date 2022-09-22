@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+
+<style>
+input[type=button]{
+  background : blue;
+  color : white;
+  width : 80px;
+  height : 30px;
+  margin : 10px;
+  border-radius: 20px;
+}
+div.box{
+    height : auto;
+    border : 2px dotted red;
+    margin : 5px;
+    padding : 5px;
+}
+
+div.box div{
+  background : #aaa9ff;
+  border-top : 1px solid gray;
+  border-bottom : 1px solid gray;
+  height : auto;
+  padding : 10px;
+}
+</style>
+
+<script>
+ /* function calc(){ } */
+ 
+ /* calc = function() { } */
+ 
+ 
+ /* 람다 함수  - es6 */
+ calc = () => { 
+	 
+	 //수1 , 수2 , 연산자 입력 - prompt 를 이용 
+	 let  su1 = parseInt(prompt("수1 입력"));
+	 let  su2 = parseInt(prompt("수2 입력"));
+	 let  op =  prompt("연산자 입력");
+		 
+	 //op를 비교 
+	 let res  = 0;
+	 
+	 switch(op){
+	 case "+" :
+		 res = su1 + su2;
+		 break;
+	 case "-" :
+		 res = su1 - su2;
+		 break;
+	 case "*":
+		 res = su1 * su2;
+		 break;
+	 case "/":
+		 res = su1 / su2;
+		 break;
+	 }
+	 
+	 //출력내용 
+	 let str = ` ${su1}  ${op} ${su2} = ${res}`;
+	 /* let str = su1 + " " +  op +  "  " + su2 + " = " + res */
+		 
+	 //출력 - html요소 div를 검색 
+	 document.querySelector('#result1').innerHTML = str;
+	 
+	 
+ }
+
+ 
+ function score(){
+	 
+	 //입력
+	 su = 67;
+		
+	switch(parseInt(su / 10)){
+	case 10:
+		break;
+	case 9:
+		break;
+	case 8:
+		break;
+	case 7:
+		break;
+	case 6:
+		break;
+	default :
+		break;
+	}
+		 
+ }
+</script>
+</head>
+<body>
+
+<div class="box">
+  <pre>
+    버튼을 클릭하면 두수와 연산자를 입력하여 연산자에 따라 계산을 한다
+  </pre>
+ 
+
+  <input type="button" value="확인" onclick="calc()">
+  
+  <div id="result1"></div>
+</div> 
+
+
+ <div class="box">
+	 <pre>
+	 점수를 0~100사이로 입력 하여 
+	 90~100 A , 80~89 B , 70~79 C ,  60~69 D, 나머지 F
+	 </pre>
+	  <input type="button" value="확인" onclick="score()">
+	  
+	 <div id="result2"></div>
+ </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
